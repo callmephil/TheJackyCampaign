@@ -12,11 +12,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/coditech/cohort-b03/capstone/phil-personal_project.git"
+    "url": "https://gitlab.com/coditech/cohort-b03/capstone/phil-personal_project.git"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://gitlab.com/coditech/cohort-b03/capstone/phil-personal_project/issues"
   },
