@@ -13,6 +13,7 @@ import { pause, makeRequestUrl } from "./Utils/Utils.js";
 import Home from './Components/Pages/Home/Home'
 import Navbar from './Components/Navigations/Navbar/Navbar'
 import Footer from './Components/Navigations/Footer/Footer'
+import ForOFor from './Components/Pages/404'
 
 // const makeUrl = (path, params) =>
 //   makeRequestUrl(`http://localhost:8080/${path}`, params);
@@ -25,7 +26,7 @@ class App extends Component {
         <Switch>
           <Route path="/" exact render={()=> <div> <Home /> </div>} />
           {/* <Route path="/callback" render={this.handleAuthentication} /> */}
-          <Route render={() => <div>not found!</div>} />
+          <Route render={() => <div> <ForOFor /> </div>} />
         </Switch>
         {/* <Footer /> */}
       </div>
