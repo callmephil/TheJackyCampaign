@@ -1,0 +1,10 @@
+@import "../../../../node_modules/bulma/sass/utilities/initial-variables";
+
+// <-- Footer -->
+$footer-background-color: $white-bis;
+$footer-padding: 1rem 1.5rem 1rem;
+
+.footer {
+  background-color: $footer-background-color;
+  padding: $footer-padding;
+}
