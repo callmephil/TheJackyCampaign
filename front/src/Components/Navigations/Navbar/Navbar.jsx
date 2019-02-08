@@ -1,61 +1,71 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const DropDownLinks = {
   Buttons: [
     {
       link: "/signup",
       className: "button is-primary",
-      text: "Sign up"
+      text: "Sign up",
+      isNavlink: false
     },
     {
       link: "/login",
       className: "button is-success",
-      text: "Login"
+      text: "Login",
+      isNavlink: false
     },
     {
       link: "/signout",
       className: "button is-error",
-      text: "Sign out"
+      text: "Sign out",
+      isNavlink: false
     }
   ],
   Main: [
     {
       link: "/",
       className: "navbar-item",
-      text: "Home"
+      text: "Home",
+      isNavlink: true
     },
     {
       link: "/campaign",
       className: "navbar-item",
-      text: "Campaign"
+      text: "Campaign",
+      isNavlink: true
     },
     {
       link: "/blog",
       className: "navbar-item",
-      text: "Blog"
+      text: "Blog",
+      isNavlink: true
     }
   ],
   Dropdown: [
     {
       link: "/about",
       className: "navbar-item",
-      text: "About"
+      text: "About",
+      isNavlink: true
     },
     {
       link: "/jobs",
       className: "navbar-item",
-      text: "Jobs"
+      text: "Jobs",
+      isNavlink: true
     },
     {
       link: "/contact",
       className: "navbar-item",
-      text: "Contact"
+      text: "Contact",
+      isNavlink: true
     },
     {
       link: "/report",
       className: "navbar-item",
-      text: "Report an issue"
+      text: "Report an issue",
+      isNavlink: true
     }
   ]
 };
@@ -76,9 +86,14 @@ const NavItems = ({ Json }) => {
   return (
     <>
       {Json.map(x => (
-        <Link to={x.link} className={x.className}>
-          {x.text}
-        </Link>
+        x.isNavlink ?
+          <NavLink exact to={x.link} className={x.className} activeStyle={{ backgroundColor: "green" }}>
+            {x.text}
+          </NavLink>
+          :
+          <Link to={x.link} className={x.className}>
+            {x.text}
+          </Link>
       ))}
     </>
   );
@@ -109,9 +124,9 @@ export default class Navbar extends Component {
           aria-label="main navigation"
         >
           <div className="navbar-brand">
-          <Link to="/" className="navbar-item" >
-            <img src="/Logo.svg" width="142" height="28" alt="Capstone"></img>
-          </Link>
+            <Link to="/" className="navbar-item" >
+              <img src="/Logo.svg" width="142" height="28" alt="Capstone"></img>
+            </Link>
 
             <div
               role="button"
@@ -131,7 +146,6 @@ export default class Navbar extends Component {
               <NavItems Json={DropDownLinks.Main} />
               <NavDropDown />
             </div>
-
             <div className="navbar-end">
               <div className="navbar-item">
                 <div className="buttons">
