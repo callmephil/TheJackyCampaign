@@ -10,10 +10,14 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { pause, makeRequestUrl } from "./Utils/Utils.js";
 
-import Home from './Components/Pages/Home/Home'
-import Navbar from './Components/Navigations/Navbar/Navbar'
-import Footer from './Components/Navigations/Footer/Footer'
-import ForOFor from './Components/Pages/404'
+/* MENUS */
+import Navbar from './Components/Navigations/Navbar/Navbar';
+import Footer from './Components/Navigations/Footer/Footer';
+/* PAGES */
+import Home from './Components/Pages/Home/Home';
+import Blog from './Components/Pages/Blog/Blog';
+import Projects from './Components/Pages/Projects/Projects';
+import ForOFor from './Components/Pages/404';
 
 // const makeUrl = (path, params) =>
 //   makeRequestUrl(`http://localhost:8080/${path}`, params);
@@ -24,11 +28,13 @@ class App extends Component {
       <div>
         <Navbar />
         <Switch>
-          <Route path="/" exact render={()=> <div> <Home /> </div>} />
+          <Route path="/" exact render={()=> <Home />} />
+          <Route path="/campaign" exact render={()=> <Projects />} />
+          <Route path="/blog" exact render={()=> <Blog />} />
           {/* <Route path="/callback" render={this.handleAuthentication} /> */}
           <Route render={() => <div> <ForOFor /> </div>} />
         </Switch>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     );
   }
