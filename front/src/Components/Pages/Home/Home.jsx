@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-{/* <div className="tile is-ancestor" Style="padding-top: 25px; padding-right: 5px; padding-left: 5px">
+/* <div className="tile is-ancestor" Style="padding-top: 25px; padding-right: 5px; padding-left: 5px">
 <div className="tile is-parent">
   <div className="tile is-child box">
     <p className="title">Three</p>
@@ -20,7 +20,7 @@ import React, { Component } from 'react';
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
   </div>
 </div>
-</div> */}
+</div> */
 
 
 class Home extends Component {

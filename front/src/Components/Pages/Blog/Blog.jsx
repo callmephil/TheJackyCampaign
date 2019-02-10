@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
 
-class Blog extends Component{
-  constructor(props){
-    super(props);
-  }
-
+class Blog extends Component
+{
   render(){
     return (
       <div className="container">
