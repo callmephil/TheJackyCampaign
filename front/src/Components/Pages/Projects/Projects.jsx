@@ -151,33 +151,77 @@ const Comments = () => {
   );
 }
 
+const FlexVerticalPosition = () => {
+  const breakpoints = {
+    desktop: 1040,
+    tablet: 840,
+    mobile: 540
+  };
+  return (
+    <>
+      {
+        window.innerWidth > breakpoints.tablet ?
+          <>
+            <div className="tile is-parent is-vertical is-4">
+              <GoalComponent />
+              <OverviewComponent />
+            </div>
+
+            <ImageComponent />
+          </>
+          :
+          <>
+            <ImageComponent />
+
+            <div className="tile is-parent is-vertical">
+              <GoalComponent />
+              <OverviewComponent />
+            </div>
+          </>
+      }
+    </>
+  );
+}
+
+const OverviewComponent = () => {
+  return (
+    <article className="tile is-child notification is-primary">
+      <p className="title">Campaign Description Component.</p>
+      <p className="subtitle">So many things</p>
+    </article>
+  );
+}
+
+const GoalComponent = () => {
+  return (
+      <article className="tile is-child notification is-warning">
+        <p className="title">Goals Component</p>
+        <p className="subtitle">So many things</p>
+      </article>
+  );
+}
+
+const ImageComponent = () => {
+  return (
+    <div className="tile is-parent">
+      <article className="tile is-child notification is-info">
+        <p className="title">Video/Image/Carroussel</p>
+        <p className="subtitle">Should be a little bit wider</p>
+        <figure className="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/640x480.png"></img>
+        </figure>
+      </article>
+    </div>
+  );
+}
+
 class Projects extends Component {
   render() {
     return (
       <div className="tile is-ancestor">
         <div className="tile is-vertical is-9">
           <div className="tile">
-            <div className="tile is-parent">
-              <article className="tile is-child notification is-info">
-                <p className="title">Video/Image/Carroussel</p>
-                <p className="subtitle">Should be a little bit wider</p>
-                <figure className="image is-4by3">
-                  <img src="https://bulma.io/images/placeholders/640x480.png"></img>
-                </figure>
-              </article>
-            </div>
-            {/* <!-- OVERVIEW COMPONENTS --!> */}
-            <div className="tile is-parent is-vertical">
-              <article className="tile is-child notification is-primary">
-                <p className="title">Campaign Description Component.</p>
-                <p className="subtitle">So many things</p>
-              </article>
-              <article className="tile is-child notification is-warning">
-                <p className="title">Goals Component</p>
-                <p className="subtitle">So many things</p>
-              </article>
-            </div>
-            {/* <!-- OVERVIEW COMPONENTS --!> */}
+            <FlexVerticalPosition />
           </div>
           <div className="tile is-parent">
             <div className="tile is-child notification is-dark">
@@ -189,12 +233,15 @@ class Projects extends Component {
             </div>
           </div>
         </div>
+        {/* If it's mobile should appear on tab window.innerWidth > tablet then load this otherwise it's handled in the tab */}
+        
         <div className="tile is-parent">
           <article className="tile is-child notification is-success">
             <div className="content">
               <p className="title">Pledges Components</p>
               <p className="subtitle">Contain Small Button Cards, should be smaller</p>
               <div className="content">
+                <PledgeComponent />
                 <PledgeComponent />
                 <PledgeComponent />
                 <PledgeComponent />
