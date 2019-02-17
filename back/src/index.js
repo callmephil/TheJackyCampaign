@@ -1,5 +1,6 @@
 import app from './app'
-import initializeDatabase from './Database/db'
+import initializeDatabase from './Database/db' // To eject
+import Connection from './Database/Connection'
 import { isLoggedIn } from './Middleware/auth'
 /* Controllers */
 import userProfileControllerApp from './Controller/user'
@@ -7,6 +8,12 @@ import userProfileControllerApp from './Controller/user'
 import upload from './Middleware/uploads'
 
 const start = async () => {
+  // Temp - Testing
+  const DatabaseControllers = await Connection();
+  const blah = DatabaseControllers.campaignController;
+  console.log(blah.sel_all_campaign())
+
+
   const controller = await initializeDatabase()
 
   app.get('/', (req, res, next) => res.send("ok"));
