@@ -8,7 +8,7 @@ const openConnection = () => {
     try {
         const path = require('path');
         const dbPath = path.resolve(__dirname, './db.sqlite');
-        const db = new Database(dbPath); // Use dbPath : Currently using copy 
+        const db = new Database('./db.sqlite'); // Use dbPath : Currently using copy 
         return db;
     } catch (error) {
         console.log(`Database Connection failed : ${error}`)

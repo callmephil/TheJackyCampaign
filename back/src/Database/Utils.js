@@ -14,7 +14,7 @@ const joinSQLStatementKeys = (keys, values, delimiter, keyValueSeparator = '=') 
 };
 
 
-export {
-    nowForSQLite,
-    joinSQLStatementKeys
+export default {
+  nowForSQLite,
+  joinSQLStatementKeys
 }
