@@ -2,47 +2,27 @@ import app from './app'
 import Connection from './Database/Connection'
 import { isLoggedIn } from './Middleware/auth'
 /* Controllers */
-import userProfileControllerApp from './Controller/user'
+import usersControllerApp from './Controller/users'
 import campaignControllerApp from './Controller/campaign'
+import blogControllerApp from './Controller/blog'
 /* Middleware */
 import upload from './Middleware/uploads'
 
 const start = async () => {
-  // Temp - Testing
+  /* Database Controllers */ 
   const DatabaseControllers = await Connection();
   const { usersController, campaignController, blogController }  = DatabaseControllers;
   app.get('/', (req, res, next) => res.send("ok"));
 
-  const new_pledge = {
-    campaign_id: 1,
-    title: "First Pledge",
-    description: "This is the first pledge",
-    reward_id: 0,
-    price: 15,
-    amount: 0,
-  }
-  //console.log(campaignController.ins_pledge(new_pledge))
-
-  console.log(campaignController.sel_pledge(5));
-  //console.log(campaignController.sel_pledges(1));
-  // console.log(blah.sel_all_campaign());
-  // console.log(blah.sel_campaign(1));
-  // console.log(await blah.ins_new_campaign())
-  // console.log(blah.upd_campaign(32))
-  // console.log(blah.delete_campaign(5))
-  //console.log(blah.sel_all_campaign())
-
-
-  // const controller = await initializeDatabase()
-
-  // 
-
   // /* ROUTING DATA'S  */
-  // const users = await userProfileControllerApp(controller, isLoggedIn, upload);
-  // app.use('/profile', users);
+  const users = await usersControllerApp(usersController, isLoggedIn, upload);
+  app.use('/users', users);
 
   const campaigns = await campaignControllerApp(campaignController, isLoggedIn, upload);
-  app.use('/campaign', campaigns);
+  app.use('/campaign', campaigns);  
+  
+  const blog = await blogControllerApp(blogController, isLoggedIn, upload);
+  app.use('/blog', blog);
 
   // /* AUTHENTIFICATION <> */
   // app.get('/mypage', isLoggedIn, async ( req, res, next ) => {
