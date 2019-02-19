@@ -22,6 +22,7 @@ DROP TABLE IF EXISTS user_post_comments;
 CREATE TABLE user_post_comments (
 	user_id integer,
 	post_id integer,
+    parent_id integer,
 	comment text,
 	date_time datetime,
 	FOREIGN KEY(user_id) 
@@ -37,6 +38,7 @@ DROP TABLE IF EXISTS user_campaign_comments;
 CREATE TABLE user_campaign_comments (
 	user_id integer,
 	campaign_id integer,
+    parent_id integer,
 	comment text,
 	date_time datetime,
 	FOREIGN KEY(user_id) 
