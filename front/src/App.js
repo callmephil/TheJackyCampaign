@@ -16,7 +16,7 @@ import Footer from './Components/Navigations/Footer/Footer';
 /* PAGES */
 import Home from './Components/Pages/Home/Home';
 import Blog from './Components/Pages/Blog/Blog';
-import Projects from './Components/Pages/Projects/Projects';
+import Campaign from './Components/Pages/Campaigns/Campaign';
 import ForOFor from './Components/Pages/404';
 
 // const makeUrl = (path, params) =>
@@ -29,7 +29,7 @@ class App extends Component {
         <Navbar />
         <Switch>
           <Route path="/" exact render={()=> <Home />} />
-          <Route path="/campaign" exact render={()=> <Projects />} />
+          <Route path="/campaign" exact render={()=> <Campaign />} />
           <Route path="/blog" exact render={()=> <Blog />} />
           {/* <Route path="/callback" render={this.handleAuthentication} /> */}
           <Route render={() => <div> <ForOFor /> </div>} />
