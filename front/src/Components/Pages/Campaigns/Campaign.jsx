@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from "axios";
 import './Campaign.css'
 /* Stateless Components */
 /* Top Left */
@@ -47,8 +48,7 @@ const FlexVerticalPosition = () => {
   );
 }
 
-
-class Projects extends Component {
+class Campaign extends Component {
   render() {
     return (
       <div className="tile is-ancestor">
@@ -89,4 +89,4 @@ class Projects extends Component {
   }
 }
 
-export default Projects;
+export default Campaign;
