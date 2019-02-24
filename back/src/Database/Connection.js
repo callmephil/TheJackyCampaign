@@ -1,7 +1,7 @@
 import Database from 'better-sqlite3';
-import Blog from './Queries/Blog';
-import Users from './Queries/Users';
-import Campaign from './Queries/Campaing';
+import Blog from './Controller/Blog';
+import Users from './Controller/Users';
+import Campaign from './Controller/Campaing';
 
 let Connection;
 const openConnection = () => {
