@@ -4,5 +4,5 @@ CREATE TABLE blog_posts (
 	title text DEFAULT '',
 	content blob DEFAULT '',
 	date datetime DEFAULT 0,
-	author_id text DEFAUTL ''
+	author_id text DEFAULT ''
 );

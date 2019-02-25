@@ -28,7 +28,7 @@ export default async (controller, isLoggedIn) => {
     });
 
     // LIST
-    app.get("/list/:post_id", async (req, res, next) => {
+    app.get("/list", async (req, res, next) => {
         const {
             order,
             desc,
@@ -44,6 +44,7 @@ export default async (controller, isLoggedIn) => {
     });
 
     app.get("/new", async (req, res, next) => {
+        console.log(req.query);
         controllerCall('createPost', req.query, res, next)
     })
 

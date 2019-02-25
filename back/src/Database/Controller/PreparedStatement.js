@@ -21,11 +21,11 @@ const PreparedStatement = {
         SEL_COMMENTS: "SELECT * FROM user_campaign_comments WHERE campaign_id = ?",
     },
     Blog: {
-        SEL_ID: "SELECT * FROM blog where post_id = ?",
-        SEL_ALL: "SELECT * FROM blog",
-        INS_NEW: "INSERT INTO blog (tite, content, date, author) VALUES ($title, $content, $date, $author)",
-        UPD_ID: "UPDATE blog SET title = $title, content = $content, date = $date, author = $author where post_id = $post_id",
-        DEL_ID: "DELETE FROM blog where post_id = ?",
+        SEL_ID: "SELECT * FROM blog_posts where post_id = ?",
+        SEL_ALL: "SELECT * FROM blog_posts",
+        INS_NEW: "INSERT INTO blog_posts (title, content, date, author_id) VALUES ($title, $content, $date, $author_id)",
+        UPD_ID: "UPDATE blog_posts SET title = $title, content = $content, date = $date, author_id = $author_id where post_id = $post_id",
+        DEL_ID: "DELETE FROM blog_posts where post_id = ?",
     },
     Users: {
         
