@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 import { BlogServices } from '../../../Services/BlogServices';
+import { toast } from 'react-toastify';
 
 const BlogCard = (props) => {
-  console.log("meh", props);
   const { title, content, date, author } = props;
   return (
+
+    <div className="section"> 
       <div className="card">
     <div className="card-image">
       <figure className="image is-4by3">
@@ -31,6 +33,7 @@ const BlogCard = (props) => {
       </div>
     </div>
   </div>
+  </div>
   );
 }
 
@@ -52,27 +55,43 @@ class Blog extends Component
 	// date datetime DEFAULT 0,
 	// author_id text DEFAUTL ''
   componentDidMount() {
-    this.blogService.createPost({title:"This is a title 2", content:"This is a content2 ", date:'10/21/1994', author_id:'Phil'})
-    .then(data => this.setState({blog_post:[...this.state.blog_posts, data]}));
+    // this.blogService.createPost({title:"This is a title 2", content:"This is a content2 ", date:'10/21/1994', author_id:'Phil'})
+    // .then(data => this.setState({blog_post:[...this.state.blog_posts, data]}))
+    // .then(toast.success(`Created`)); // @Todo Do this in AxiosUtils ?
+
     this.blogService.getPostList().then(data => this.setState({blog_posts: data}));
-    this.blogService.deletePost(5).then(this.setState(this.state.blog_posts)); // Reload ?
+    //this.blogService.getPost(1).then(data => this.setState({blog_posts: data}));
+    // this.blogService.deletePost(0);
+
+    // this.blogService.updatePost(1, {title: "This is a title omgdadsadasds", content: "This is a content2"}, this.state.blog_posts)
+    // .then(data => console.log(data))
+    // .then(
+    //   // data => this.setState({blog_post:data}).then(
+    //   toast.success(`Updated`)
+    // )
   }
+
+
+  // <BlogCard 
+  // title={blah.title}
+  // content={blah.title}
+  // date={blah.date}
+  // author={blah.author_id + ' ' + blah.post_id}
+  // />
+
   render(){
     const blah = this.state.blog_posts;
     return (
       <div style={{width:"50%"}}>
       {/* // <div className="container"> */}
       {
-
         blah.map((val, i) =>
-        <div className="section"> 
           <BlogCard key={i} 
               title={val.title}
               content={val.content}
               date={val.date}
               author={val.author_id + ' ' + val.post_id}
           />
-        </div>
         )
       }
       {/* // </div> */}

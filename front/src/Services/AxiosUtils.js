@@ -33,15 +33,16 @@ const request = async (path, options) => {
       const response = await axios(config);
       const answer = response.data
       if (answer.success) {
+          //toast.error(`Created`);
       //  this.setState({ isLoading: false });  
       } else {
       //  this.setState({ error_message: answer.message, isLoading: false });
-        toast.error('client error:'+answer.message);
+        toast.error('client error:'+answer.message); // < Toast Crash Here ?
       }
       return answer;
     } catch (err) {
      // this.setState({ error_message: err.message, isLoading: false });
-      toast.error('server error: '+err.message);
+      toast.error('server error: '+err.message); // < Toast Crash Here ?
       return { success:false }
     }
 };

@@ -35,6 +35,7 @@ class App extends Component {
           <Route render={() => <div> <ForOFor /> </div>} />
         </Switch>
         <Footer />
+        <ToastContainer />
       </div>
     );
   }

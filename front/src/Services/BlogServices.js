@@ -1,4 +1,5 @@
 import request from './AxiosUtils';
+import toast from 'react-toastify';
 
 /*
 *** Prototypes
@@ -26,17 +27,19 @@ export class BlogServices {
         if (!answer.success)
             return;
         
-        const blog_list = answer.result
-        console.log(blog_list);
+        const blog_list = answer.result;
         return blog_list;
     }
 
-    getPost = async (id) => {
-        const answer = await request(`blog/get`, {
-            params: {
-                id
-            }
-        });
+    getPost = async (post_id) => {
+        // const answer = await request(`blog/get`, {
+        //     method:'get',
+        //     params: {
+        //         post_id
+        //     }
+        // });
+        const answer = await request(`blog/get/${post_id}`);
+        console.log("post", answer);
         if (!answer.success) 
             return;
         const blog = answer.result;
