@@ -44,7 +44,6 @@ export default async (controller, isLoggedIn) => {
     });
 
     app.get("/new", async (req, res, next) => {
-        console.log(req.query);
         controllerCall('createPost', req.query, res, next)
     })
 
@@ -63,15 +62,12 @@ export default async (controller, isLoggedIn) => {
     });
 
     // DELETE
-    app.get("/delete/:post_id", isLoggedIn, async (req, res, next) => {
-        const author_id = req.user.sub
+    app.get("/delete/:post_id", async (req, res, next) => {
+        // const author_id = req.user.sub
         const {
             post_id
         } = req.params;
-        controllerCall('deletePost', {
-            post_id,
-            author_id
-        }, res, next)
+        controllerCall('deletePost', post_id, res, next)
     });
     //#endregion
     /* ======================= CAMPAIGNS BLOG POST END ======================== */

@@ -4,7 +4,7 @@ import toast from 'react-toastify';
 
 const request = async (path, options) => {
     try {
-        console.log("UTILS : ",  path, options);
+       // Debug console.log("UTILS : ",  path, options);
       //this.setState({ isLoading: true });
       if(options && options.data){
         const data = new FormData();
