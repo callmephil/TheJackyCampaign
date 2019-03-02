@@ -2,16 +2,6 @@
 /* ================================= LAYOUT  ================================= */
 /* =========================================================================== */
 
-/* Remove extra left and right margins, due to padding */
-.row {margin: 0 -5px;}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
 /* Style the counter cards */
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -19,6 +9,10 @@
   text-align: center;
   background-color: #f1f1f1;
   margin: 8px;
+}
+
+.card:hover {
+  background-color: #e9e7e7;
 }
 
 /* =========================================================================== */
@@ -73,3 +67,61 @@ button:hover {
 /* =========================================================================== */
 /* =================================  IMAGE  ================================= */
 /* =========================================================================== */
+
+
+
+
+
+
+
+
+
+/* =========================================================================== */
+/* ===============================  STEALING  ================================ */
+/* =========================================================================== */
+.thumbnail img {
+  display: block;
+  width: 100%;
+  -webkit-transition: all 0.3s linear 0s;
+  -moz-transition: all 0.3s linear 0s;
+  -ms-transition: all 0.3s linear 0s;
+  -o-transition: all 0.3s linear 0s;
+  transition: all 0.3s linear 0s;
+}
+
+.post-card-content .location > h1 {
+  position: relative;
+  top: -34px;
+  left: 0;
+  background: #282c21ab;
+  padding: 10px 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.post-card-content .title {
+  margin: 0;
+  padding: 0 0 14px;
+  color: #e74c3c;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.post-card-content .description {
+  /* display: none; */
+  color: #030303;
+  font-size: 14px;
+  line-height: 1.8em;
+}
+
+.fa-align-text-center {
+  display: inline;
+  /* padding: 0px; */
+  padding-top: 25px;
+}
+
+.iii {
+  padding: 10px;
+}

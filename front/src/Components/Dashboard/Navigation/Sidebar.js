@@ -22,19 +22,19 @@ export default class Sidebar extends Component {
             {
                 link:"/admin/campaign",
                 icon:"fa fa-2x fa-home",
-                text:"Home",
+                text:"Campaign Editor",
                 position: ""
             },
             {
                 link:"/admin/blog",
-                icon:"fa fa-2x fa-home",
-                text:"Test 3",
+                icon:"fa fa-2x fa-newspaper",
+                text:"Blog Editor",
                 position: ""
             },
             {
                 link:"/admin/users",
-                icon:"fa fa-2x fa-home",
-                text:"Test 3",
+                icon:"fa fa-2x fa-users",
+                text:"Users",
                 position: ""
             },
             {
@@ -61,7 +61,7 @@ export default class Sidebar extends Component {
                         {Links.map((x, i) => (
                         <ul className={x.position} key={i}>
                             <li>
-                                <NavLink to={x.link} activeStyle={{ color: "red" }}>
+                                <NavLink to={x.link} activeStyle={{ color: "#fff", backgroundColor: "#5fa2db" }}>
                                     <i className={x.icon} />
                                     <span className="nav-text">
                                         {x.text}

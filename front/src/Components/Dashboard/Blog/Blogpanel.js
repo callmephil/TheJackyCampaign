@@ -7,7 +7,7 @@ class Blogpanel extends Component {
     render() {
         return (
           <>
-          <div class="section group">
+          <div className="section group">
               <BlogEdit />
                <BlogCard />
                <BlogCard />
