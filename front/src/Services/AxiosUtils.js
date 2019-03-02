@@ -2,9 +2,40 @@ import axios from 'axios';
 import * as auth0Client from "../Utils/Auth/Auth";
 import toast from 'react-toastify';
 
+const onGet = async (url) => {
+  const answer = await request(url);
+  if (!answer.success)
+      return;
+  const result = answer.result;
+  return result;
+}
+
+const onGetList = async (url, props) => {
+  console.log("DEBUG");
+  const answer = await request(url, {
+    params: {
+      ...props,
+    }
+  });
+  if (!answer.success)
+    return;
+  const result = answer.result;
+  return result;
+}
+
+const onDelete = async (url) => {
+    const answer = await request(url);
+    if (!answer.success || !answer.result)
+        return;
+    //return true;
+};
+
+// onCreate
+// onUpdate
+
 const request = async (path, options) => {
     try {
-        console.log("UTILS : ",  path, options);
+       // Debug console.log("UTILS : ",  path, options);
       //this.setState({ isLoading: true });
       if(options && options.data){
         const data = new FormData();
@@ -33,17 +64,23 @@ const request = async (path, options) => {
       const response = await axios(config);
       const answer = response.data
       if (answer.success) {
+          //toast.error(`Created`);
       //  this.setState({ isLoading: false });  
       } else {
       //  this.setState({ error_message: answer.message, isLoading: false });
-        toast.error('client error:'+answer.message);
+        toast.error('client error:'+answer.message); // < Toast Crash Here ?
       }
       return answer;
     } catch (err) {
      // this.setState({ error_message: err.message, isLoading: false });
-      toast.error('server error: '+err.message);
+      toast.error('server error: '+err.message); // < Toast Crash Here ?
       return { success:false }
     }
 };
 
-export default request;
+export {
+  request,
+  onGet,
+  onGetList,
+  onDelete
+}

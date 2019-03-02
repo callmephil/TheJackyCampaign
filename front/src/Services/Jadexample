@@ -1,0 +1,31 @@
+import { getBlogs:_getBlogs } from './fetcher'
+
+function wrap(onInit,onDone,onFail){
+    const getBlogs = async(props) =>{
+        onInit()
+        const response = _getBlogs(props)
+        if(response.success){
+            return onDone(response.data)
+        }
+        return onFail(response.error)
+    }
+
+    return { getBlogs }
+}
+
+
+class Batat extends React.Component{
+    constructor(){
+        const { getBlogs } = wrap(
+            () => this.setState({ loading: true}),
+            (data) => {
+                ...
+                this.setState({ loading: false })
+            },
+            (error) => {
+                ...
+                this.setState({ loading: false })
+            }
+        )
+    }
+}
