@@ -55,11 +55,14 @@ class Blog extends Component
 	// date datetime DEFAULT 0,
 	// author_id text DEFAUTL ''
   componentDidMount() {
+    // global dispatcher
     // this.blogService.createPost({title:"This is a title 2", content:"This is a content2 ", date:'10/21/1994', author_id:'Phil'})
     // .then(data => this.setState({blog_post:[...this.state.blog_posts, data]}))
     // .then(toast.success(`Created`)); // @Todo Do this in AxiosUtils ?
-
-    this.blogService.getPostList().then(data => this.setState({blog_posts: data}));
+    this.setState({ loading: true})
+    this.blogService.getPostList()
+      .then(data => this.setState({blog_posts: data, loading: false }))
+      .catch(err => this.setState({ error: err.message, loading: false }))
     //this.blogService.getPost(1).then(data => this.setState({blog_posts: data}));
     // this.blogService.deletePost(0);
 

@@ -2,6 +2,37 @@ import axios from 'axios';
 import * as auth0Client from "../Utils/Auth/Auth";
 import toast from 'react-toastify';
 
+const onGet = async (url) => {
+  const answer = await request(url);
+  if (!answer.success)
+      return;
+  const result = answer.result;
+  return result;
+}
+
+const onGetList = async (url, props) => {
+  console.log("DEBUG");
+  const answer = await request(url, {
+    params: {
+      ...props,
+    }
+  });
+  if (!answer.success)
+    return;
+  const result = answer.result;
+  return result;
+}
+
+const onDelete = async (url) => {
+    const answer = await request(url);
+    if (!answer.success || !answer.result)
+        return;
+    //return true;
+};
+
+// onCreate
+// onUpdate
+
 const request = async (path, options) => {
     try {
        // Debug console.log("UTILS : ",  path, options);
@@ -47,4 +78,9 @@ const request = async (path, options) => {
     }
 };
 
-export default request;
+export {
+  request,
+  onGet,
+  onGetList,
+  onDelete
+}
