@@ -11,14 +11,14 @@ class Dashboard extends Component {
             <div>
                 <Sidebar /> 
 
+                <div className= "w3-container" style={{border: "2px solid black", borderRadius: "5px", marginLeft:"70px"}} >
                 <Switch>
-                <div className= "w3-container" style={{border: "2px solid black", borderRadius: "5px", marginLeft:"70px"}}>
                     {/* <Route path="/admin" render={()=> <Dashboard />} /> */}
                     <Route path="/admin/campaign" exact render={()=>  <div>  admin campaign is active </div>} />
                     <Route path="/admin/blog" exact render={()=>  <Blogpanel />} />
                     <Route path="/admin/users" exact render={()=> <div> test is active </div>} />
-                </div>
                 </Switch>
+                </div>
                 <ToastContainer />
             </div>
         );
