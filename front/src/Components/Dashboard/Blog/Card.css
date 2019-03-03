@@ -114,6 +114,9 @@ button:hover {
   color: #030303;
   font-size: 14px;
   line-height: 1.8em;
+  font-family: sans-serif !important;
+  text-align: justify !important;
+  padding: 0px 15px 0px 10px;
 }
 
 .fa-align-text-center {
@@ -123,5 +126,22 @@ button:hover {
 }
 
 .iii {
-  padding: 10px;
+  font-size: 18px;
+  padding-right: 10px;
+}
+
+.Link-Text {
+  color: white;
+  font-size: 24px;
+}
+
+.readmorebtn {
+  float: left;
+  width: 100%;
+  background-color: #28434b;
+}
+
+.Link-Text:hover {
+  color: whitesmoke;
+  background-color: #28434be7;
 }

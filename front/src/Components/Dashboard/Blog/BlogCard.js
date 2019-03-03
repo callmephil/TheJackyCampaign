@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 import '../Layout/Layout.css';
@@ -16,17 +16,20 @@ export const BlogEdit = () => {
     return (
       <div className="card">
       <form>
-        <label for="ftitle">Post Title</label>
+        <label htmlFor="ftitle">Post Title</label>
         <input type="text" id="ftitle" name="title" placeholder="Title name..." />
 
-        <label for="region">Region</label>
+        <label htmlFor="region">Region</label>
         <select id="region" name="region">
           <option value="australia">North</option>
           <option value="canada">Center</option>
           <option value="usa">South</option>
         </select>
 
-        <label for="content">Content</label>
+        <label htmlFor="Description">Description</label>
+        <textarea id="Description" name="Description" maxlength="300" minlength="300" placeholder="text for the card maximum 300 characters.." style={{height:"100px"}}></textarea>
+
+        <label htmlFor="content">Content</label>
         <textarea id="content" name="content" placeholder="Write something.." style={{height:"400px"}}></textarea>
 
         <div>
@@ -41,43 +44,48 @@ export const BlogEdit = () => {
     );
 };
 
-export const BlogCard = () => {
+export const BlogCard = ({ props }) => {
+    const { imgsource, location, title, description, date, commentLength, post_id } = props;
     return (
       <div className="col span_1_of_3">
       <div className="card">
           <div className="thumbnail">
-            <img src="https://www.w3schools.com/howto/img_nature.jpg" />
+            <img src= {imgsource}/>
           </div>
           <div className="post-card-content">
             <div className="location">
-                <h1>Lebanon - Tarshish</h1>
+                <h1>{location}</h1>
             </div>
-            <h1 className="title">City Lights in New York</h1>
-            <p className="description">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            <h1 className="title">{title}</h1>
+            <p className="description" Style="text-indent: 25px;">
+              {description}
             </p>
 
-            {/* <!-- This is shit --!> */}
+            {/* <!--- This is shit ---!> */}
+            <br />
             <div>
-                <span className="fa fa-clock-o fa-align-text-center"> 
-                  <i className="iii"> 10/20/1994 </i> 
+                <span className="far fa-calendar-alt fa-align-text-center"> 
+                  <i className="iii"> {date} </i> 
                 </span>
-                <span className="fa fa-comments fa-align-text-center"> 
-                  <i className="iii"> 39 comments </i> 
+                <span className="far fa-comments fa-align-text-center"> 
+                  <i className="iii"> {commentLength} </i> 
                 </span>
-                <Link className="fa fa-long-arrow-alt-right fa-align-text-center sublime" to="/about">
-                Read More</Link>
-                <br />
-                <br />
             </div>
-
+            <br />
+            <Link className="Link-Text readmorebtn" to={`/post/${post_id}`}>Read More</Link>
           </div>
       </div>
+      {/* <!--- Edit Mode ---!> */}
+      {/* { editmode === true ? */}
       <div className="clearfix">
-          <button type="button" className="cancelbtn">Delete</button>
-          <button type="button" className="editbtn">Edit</button>
-          <button type="button" className="publishbtn">Publish</button>
+      <br />
+      <br />
+          <button type="button" className="cancelbtn font-size-16">Delete</button>
+          <button type="button" className="editbtn font-size-16">Edit</button>
+          <button type="button" className="publishbtn font-size-16">Publish</button>
       </div>
+      {/* : <> </> */}
+      {/* } */}
     </div>
     );
 };
