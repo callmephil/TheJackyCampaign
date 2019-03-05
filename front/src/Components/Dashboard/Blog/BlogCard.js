@@ -5,46 +5,87 @@ import '../Layout/Layout.css';
 import './Form.css';
 import './Card.css';
 
-export const BlogForm = () => {
-    return (
-        <>
-        </>
-    );
-};
 
-export const BlogEdit = () => {
+// <input
+//   type="text"
+//   placeholder="name"
+//   name="contact_name_input"
+//   defaultValue={name}
+// />
+// <input
+//   type="text"
+//   placeholder="email"
+//   name="contact_email_input"
+//   defaultValue={email}
+// />
+// <input
+//   type="file"
+//   name="contact_image_input"
+// />
+// <div>
+//   <input type="submit" value="ok" />
+//   <input type="reset" value="cancel" className="button" />
+// </div>
+// </form>
+
+export const BlogEdit = (fonSubmit, toggleEditMode, imgsource, location, title, description, content) => {
+    // const {  } = props;
+    console.log("DEBUG", location);
+    console.log(fonSubmit, toggleEditMode, imgsource, location , title, description, content);
     return (
-      <div className="card">
-      <form>
-        <label htmlFor="ftitle">Post Title</label>
-        <input type="text" id="ftitle" name="title" placeholder="Title name..." />
+      <form className="card" onSubmit={fonSubmit} onReset={toggleEditMode}>
+        <label htmlFor="form_title">Post Title</label>
+        <input 
+          id="form_title" 
+          type="text" 
+          name="blog_title_input" 
+          placeholder="Title name..." 
+          defaultValue= {title}
+        />
 
         <label htmlFor="region">Region</label>
-        <select id="region" name="region">
-          <option value="australia">North</option>
-          <option value="canada">Center</option>
-          <option value="usa">South</option>
+        <select id="region" name="blog_region_input">
+          {/* {location.map((loc, i) =>  */}
+            <option value="0">North</option>
+          {/* )} */}
         </select>
 
-        <label htmlFor="Description">Description</label>
-        <textarea id="Description" name="Description" maxlength="300" minlength="300" placeholder="text for the card maximum 300 characters.." style={{height:"100px"}}></textarea>
+        <label htmlFor="form_description">Description</label>
+        <textarea id="form_description" 
+          name="blog_description_input" 
+          maxLength="300" 
+          minLength="300" 
+          placeholder="text for the card of 300 characters.." 
+          style={{height:"100px"}}
+          defaultValue={description}
+        />
 
-        <label htmlFor="content">Content</label>
-        <textarea id="content" name="content" placeholder="Write something.." style={{height:"400px"}}></textarea>
+        <label htmlFor="form_content">Content</label>
+        <textarea 
+          id="form_content" 
+          name="blog_content_input" 
+          placeholder="Write something.." 
+          style={{height:"400px"}}
+          defaultValue={content}
+        />
 
         <div>
           <label> Upload a thumbnail </label>
-          <input type="file" name="myFile"/>
+          <input 
+          type="file" 
+          name="blog_image_input" 
+          defaultValue={imgsource}
+          />
           <br/>
           <br/>
         </div>
-        <button type="submit" value="Submit"> Create </button>
+        <input type="submit" value="Create/Update" />
+        <input type="reset" value="cancel" className="button" />
       </form>
-      </div>
     );
 };
 
-export const BlogCard = ({ props }) => {
+export const BlogCard = ({ props, functions }) => {
     const { imgsource, location, title, description, date, commentLength, post_id } = props;
     return (
       <div className="col span_1_of_3">
@@ -57,7 +98,7 @@ export const BlogCard = ({ props }) => {
                 <h1>{location}</h1>
             </div>
             <h1 className="title">{title}</h1>
-            <p className="description" Style="text-indent: 25px;">
+            <p className="description" style={{textIndent: "25px"}}>
               {description}
             </p>
 
@@ -76,16 +117,15 @@ export const BlogCard = ({ props }) => {
           </div>
       </div>
       {/* <!--- Edit Mode ---!> */}
-      {/* { editmode === true ? */}
+      { functions && 
       <div className="clearfix">
       <br />
       <br />
-          <button type="button" className="cancelbtn font-size-16">Delete</button>
-          <button type="button" className="editbtn font-size-16">Edit</button>
-          <button type="button" className="publishbtn font-size-16">Publish</button>
+          <button onClick={() => functions.delete(post_id)}  type="button" className="cancelbtn font-size-16">Delete</button>
+          <button onClick={() => functions.edit(post_id)}    type="button" className="editbtn font-size-16">Edit</button>
+          <button onClick={() => functions.publish(post_id)} type="button" className="publishbtn font-size-16">Publish</button>
       </div>
-      {/* : <> </> */}
-      {/* } */}
+      }
     </div>
     );
 };

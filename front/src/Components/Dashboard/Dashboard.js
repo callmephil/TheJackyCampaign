@@ -4,6 +4,7 @@ import { ToastContainer } from "react-toastify";
 import Sidebar from './Navigation/Sidebar';
 
 import Blogpanel from './Blog/Blogpanel';
+import BlogFinal from './Blog/BlogFinal';
 
 class Dashboard extends Component {
     render() {
@@ -14,7 +15,7 @@ class Dashboard extends Component {
                 <div className= "w3-container" style={{border: "2px solid black", borderRadius: "5px", marginLeft:"70px"}} >
                 <Switch>
                     {/* <Route path="/admin" render={()=> <Dashboard />} /> */}
-                    <Route path="/admin/campaign" exact render={()=>  <div>  admin campaign is active </div>} />
+                    <Route path="/admin/campaign" exact render = {() => <BlogFinal editMode={ true }/> } />
                     <Route path="/admin/blog" exact render={()=>  <Blogpanel />} />
                     <Route path="/admin/users" exact render={()=> <div> test is active </div>} />
                 </Switch>
