@@ -21,7 +21,9 @@ const PreparedStatement = {
         SEL_COMMENTS: "SELECT * FROM user_campaign_comments WHERE campaign_id = ?",
     },
     Blog: {
-        SEL_ID: "SELECT * FROM blog_posts where post_id = ?",
+        SEL_POST: "SELECT * FROM blog_posts where post_id = ?",
+        SEL_POST_CARD_ID: "SELECT imgsource, location, title, description, date FROM blog_posts where post_id = ?",
+        SEL_POST_CARDS: "SELECT imgsource, location, title, description, date FROM blog_posts",
         SEL_ALL: "SELECT * FROM blog_posts",
         INS_NEW: "INSERT INTO blog_posts (title, content, date, author_id) VALUES ($title, $content, $date, $author_id)",
         UPD_ID: "UPDATE blog_posts SET title = $title, content = $content, date = $date, author_id = $author_id where post_id = $post_id",

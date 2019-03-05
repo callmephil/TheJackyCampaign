@@ -4,6 +4,8 @@ CREATE TABLE location (
 	region text
 );
 
+INSERT INTO location (location_id, region) VALUES (0, 'unspecified');
+
 DROP TABLE IF EXISTS media;
 CREATE TABLE media (
 	media_id integer PRIMARY KEY,

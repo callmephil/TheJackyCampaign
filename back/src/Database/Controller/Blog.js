@@ -5,11 +5,15 @@ const initializeBlog = async (db) => {
         const statement = PreparedStatement.Blog;
 
         const getPost = (id) => {
-            return PreparedQueries(db, statement.SEL_ID).SELECT(id);
+            return PreparedQueries(db, statement.SEL_POST).SELECT(id);
         }
 
-        const getAllPost = () => {
-            return PreparedQueries(db, statement.SEL_ALL).SELECT_ALL();
+        const getPostCard = (id) => {
+            return PreparedQueries(db, statement.SEL_POST_CARD_ID).SELECT(id);
+        }
+
+        const getAllPostCards = () => {
+            return PreparedQueries(db, statement.SEL_POST_CARDS).SELECT_ALL();
         }
 
         const createPost = (props) => {
@@ -26,7 +30,8 @@ const initializeBlog = async (db) => {
 
         const controller = {
             getPost,
-            getAllPost,
+            getPostCard,
+            getAllPostCards,
             createPost,
             updatePost,
             deletePost
