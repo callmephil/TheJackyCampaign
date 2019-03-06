@@ -26,7 +26,10 @@ export default class BlogFinal extends Component {
 
     toggleUpdateMode = () => {
         const isUpdate = !this.state.isUpdate;
-        this.setState({ isUpdate });
+        if (!isUpdate) // Reset the state as well.
+          this.setState({ isUpdate, post_data: [] });
+        else
+          this.setState({ isUpdate })
     }
 
     componentDidMount() {
@@ -40,6 +43,28 @@ export default class BlogFinal extends Component {
       //     this.setState({ editMode: true });
       //     return;
       //     }  
+
+      this.setState({locations: [{
+        id: 0,
+        name: "unspecified"
+      },
+      {
+        id: 1,
+        name: "north"
+      },
+      {
+        id: 2,
+        name: "south"
+      },
+      {
+        id: 3,
+        name: "west"
+      },
+      {
+        id: 4,
+        name: "east"
+      }]}
+      );
     }
     getBlogList = () => {
         // this.setState({ loading: true })
@@ -51,7 +76,7 @@ export default class BlogFinal extends Component {
         console.log("This Got Triggered", id);
         this.setState({post_data: {
           imgsource:"img", 
-          location:"north", 
+          location: 1, 
           title:"Title", 
           description:"Blag", 
           content:"Blablah"}
@@ -93,7 +118,8 @@ export default class BlogFinal extends Component {
     }
 
   renderForm() {
-    const { locations } = this.state.locations;
+    const locations = this.state.locations;
+    const isUpdate = this.state.isUpdate ? "Update" : "Create";
     const { imgsource, location, title, description, content } = this.state.post_data;
     console.log("DEBUGL2", imgsource, location, title, description, content);
     return (
@@ -108,8 +134,11 @@ export default class BlogFinal extends Component {
         />
 
         <label htmlFor="region">Region</label>
-        <select id="region" name="blog_region_input" defaultValue = {location}>
+        <select id="region" name="blog_region_input">
           {locations ? locations.map((loc, i) => 
+            loc.id === location ? 
+            <option selected key={i} value={loc.loc_id}>{loc.name}</option>
+            : 
             <option key={i} value={loc.loc_id}>{loc.name}</option>
           ) : 
             <option value="0">unspecified</option>
@@ -123,7 +152,7 @@ export default class BlogFinal extends Component {
           maxLength="300" 
           placeholder="text for the card of 300 characters.." 
           style={{height:"100px"}}
-          defaultValue={description}
+          value={description}
         />
 
         <label htmlFor="form_content">Content</label>
@@ -132,24 +161,27 @@ export default class BlogFinal extends Component {
           name="blog_content_input" 
           placeholder="Write something.." 
           style={{height:"400px"}}
-          defaultValue={content}
+          value={content}
         />
 
         <div>
           <label> Upload a thumbnail </label>
           <input 
           type="file" 
-          name="blog_image_input" 
-          defaultValue={imgsource}
+          name="blog_image_input"
           />
           <br/>
           <br/>
         </div>
-        <input type="submit" value="Create/Update" />
-        <input type="reset" value="cancel" className="button" />
+
+        <div> 
+          <input type="submit" value={isUpdate} />
+          <input type="reset" value="cancel" className="button" />
+        </div>
       </form>
     );
   }
+
   onSubmit = evt => {
     // stop the page from refreshing
     evt.preventDefault();
