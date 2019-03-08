@@ -4,6 +4,7 @@ CREATE TABLE blog_posts (
 	media_id integer default 0,
 	location_id integer default 0,
 	title text DEFAULT '',
+	description text default '',
 	content blob DEFAULT '',
 	date datetime DEFAULT 0,
 	author_id text DEFAULT '',

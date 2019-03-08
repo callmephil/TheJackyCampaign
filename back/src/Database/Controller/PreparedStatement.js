@@ -22,10 +22,10 @@ const PreparedStatement = {
     },
     Blog: {
         SEL_POST: "SELECT * FROM blog_posts where post_id = ?",
-        SEL_POST_CARD_ID: "SELECT imgsource, location, title, description, date FROM blog_posts where post_id = ?",
-        SEL_POST_CARDS: "SELECT imgsource, location, title, description, date FROM blog_posts",
+        SEL_POST_CARD_ID: "SELECT media_id, location_id, title, description, date FROM blog_posts where post_id = ?",
+        SEL_POST_CARDS: "SELECT post_id, media_id as imgsource, location_id, title, description, date FROM blog_posts",
         SEL_ALL: "SELECT * FROM blog_posts",
-        INS_NEW: "INSERT INTO blog_posts (title, content, date, author_id) VALUES ($title, $content, $date, $author_id)",
+        INS_NEW: "INSERT INTO blog_posts (media_id, location_id, title, description, content, date, author_id) VALUES ($media_id, $location_id, $title, $description, $content, $date, $author_id)",
         UPD_ID: "UPDATE blog_posts SET title = $title, content = $content, date = $date, author_id = $author_id where post_id = $post_id",
         DEL_ID: "DELETE FROM blog_posts where post_id = ?",
     },

@@ -27,7 +27,22 @@ export default async (controller, isLoggedIn) => {
         controllerCall('getPost', post_id, res, next)
     });
 
-    // LIST
+    // LIST getAllPostCards
+    app.get("/cards/list", async (req, res, next) => {
+        const {
+            order,
+            desc,
+            limit,
+            start
+        } = req.query;
+        controllerCall('getAllPostCards', {
+            order,
+            desc,
+            limit,
+            start
+        }, res, next)
+    });
+
     app.get("/list", async (req, res, next) => {
         const {
             order,
@@ -42,6 +57,8 @@ export default async (controller, isLoggedIn) => {
             start
         }, res, next)
     });
+
+    
 
     app.get("/new", async (req, res, next) => {
         controllerCall('createPost', req.query, res, next)

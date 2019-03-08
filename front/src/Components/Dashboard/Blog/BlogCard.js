@@ -1,95 +1,84 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 
 import '../Layout/Layout.css';
 import './Form.css';
 import './Card.css';
 
+export const BlogForm = (props) => {
+  // console.log("DEBUGL2", props);
+  const { locations, isUpdate, onSubmit, onEditCancel, 
+  post_id, location_id, title, description, content } = props;
+  const buttonName = isUpdate ? "Update" : "Create";
 
-// <input
-//   type="text"
-//   placeholder="name"
-//   name="contact_name_input"
-//   defaultValue={name}
-// />
-// <input
-//   type="text"
-//   placeholder="email"
-//   name="contact_email_input"
-//   defaultValue={email}
-// />
-// <input
-//   type="file"
-//   name="contact_image_input"
-// />
-// <div>
-//   <input type="submit" value="ok" />
-//   <input type="reset" value="cancel" className="button" />
-// </div>
-// </form>
+  return (
+    <form className="card" onSubmit={(evt)=> onSubmit(evt)} onReset={(evt)=> onEditCancel(evt)}>
+      <label htmlFor="form_title">Post Title</label>
+      <input 
+        id="form_title" 
+        type="text" 
+        name="blog_title_input" 
+        placeholder="Title name..." 
+        defaultValue = {title}
+      />
 
-export const BlogEdit = (fonSubmit, toggleEditMode, imgsource, location, title, description, content) => {
-    // const {  } = props;
-    console.log("DEBUG", location);
-    console.log(fonSubmit, toggleEditMode, imgsource, location , title, description, content);
-    return (
-      <form className="card" onSubmit={fonSubmit} onReset={toggleEditMode}>
-        <label htmlFor="form_title">Post Title</label>
+      <label htmlFor="region">Region</label>
+      <select id="region" name="blog_region_input">
+        {locations ? locations.map((loc, i) => 
+          loc.id === location_id ? 
+          <option selected key={i} value={loc.id}>{loc.name}</option>
+          : 
+          <option key={i} value={loc.id}>{loc.name}</option>
+        ) : 
+          <option value="0">unspecified</option>
+        }
+      </select>
+
+      <label htmlFor="form_description">Description</label>
+      <textarea id="form_description" 
+        name="blog_description_input" 
+        minLength="300" 
+        maxLength="300" 
+        placeholder="text for the card of 300 characters.." 
+        style={{height:"100px"}}
+        value = {description}
+      />
+
+      <label htmlFor="form_content">Content</label>
+      <textarea 
+        id="form_content" 
+        name="blog_content_input" 
+        placeholder="Write something.." 
+        style={{height:"400px"}}
+        value = {content}
+      />
+
+      <div>
+        <label> Upload a thumbnail </label>
         <input 
-          id="form_title" 
-          type="text" 
-          name="blog_title_input" 
-          placeholder="Title name..." 
-          defaultValue= {title}
+        type="file" 
+        name="blog_image_input"
         />
+        <br/>
+        <br/>
+      </div>
 
-        <label htmlFor="region">Region</label>
-        <select id="region" name="blog_region_input">
-          {/* {location.map((loc, i) =>  */}
-            <option value="0">North</option>
-          {/* )} */}
-        </select>
-
-        <label htmlFor="form_description">Description</label>
-        <textarea id="form_description" 
-          name="blog_description_input" 
-          maxLength="300" 
-          minLength="300" 
-          placeholder="text for the card of 300 characters.." 
-          style={{height:"100px"}}
-          defaultValue={description}
-        />
-
-        <label htmlFor="form_content">Content</label>
-        <textarea 
-          id="form_content" 
-          name="blog_content_input" 
-          placeholder="Write something.." 
-          style={{height:"400px"}}
-          defaultValue={content}
-        />
-
-        <div>
-          <label> Upload a thumbnail </label>
-          <input 
-          type="file" 
-          name="blog_image_input" 
-          defaultValue={imgsource}
-          />
-          <br/>
-          <br/>
-        </div>
-        <input type="submit" value="Create/Update" />
+      <div> 
+        <input type="submit" value={buttonName} />
         <input type="reset" value="cancel" className="button" />
-      </form>
-    );
+      </div>
+    </form>
+  );
 };
 
+// @Todo getCorrect Data
 export const BlogCard = ({ props, functions }) => {
-    const { imgsource, location, title, description, date, commentLength, post_id } = props;
+    const { title, description, date, commentLength, post_id } = props;
+    let imgsource = "https://www.w3schools.com/howto/img_nature.jpg";
+    let location = "unspecified"
     return (
       <div className="col span_1_of_3">
-      <div className="card">
+      <div className="card">  
           <div className="thumbnail">
             <img src= {imgsource}/>
           </div>

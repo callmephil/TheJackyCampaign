@@ -24,7 +24,7 @@ import toast from 'react-toastify';
 
 export class BlogServices {
   getPostList = async (order) => {
-    return await onGetList(`blog/list`, {
+    return await onGetList(`blog/cards/list`, {
       order
     });
   }
@@ -39,9 +39,10 @@ export class BlogServices {
 
   // Push Back Result to state to update interface.
   createPost = async (props) => {
-    if (!props || !(props.title && props.content && props.date && props.author_id)) {
+    if (!props || !(props.imgsource && props.location_id && props.title && props.description && props.content)) {
+      console.log("DBG", props.title, props.location_id, props.description, props.content, props.imgsource);
       throw new Error(
-        `you need ${Object.keys(props)} properties to create a blog`
+        `you need ${Object.keys(props)} properties to create a post`
       );
     }
 

@@ -17,7 +17,11 @@ const initializeBlog = async (db) => {
         }
 
         const createPost = (props) => {
-            return PreparedQueries(db, statement.INS_NEW).INSERT(props);
+            // fix this
+            const { imgsource, location_id, title, description, content } = props;
+            const create = { media_id:0, location_id, title, description, content, date:'10/20/1994', author_id:'phil'}
+            // console.log(create);
+            return PreparedQueries(db, statement.INS_NEW).INSERT(create);
         }
 
         const updatePost = (id, props) => {

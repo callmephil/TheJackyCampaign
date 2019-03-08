@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import * as auth0Client from "../../../Utils/Auth/Auth";
-import {BlogServices} from '../../../Services/BlogServices'
-
-import { BlogCard } from './BlogCard';
-// import { BlogEdit, BlogCard } from './BlogFinal';
+import { BlogServices } from '../../../Services/BlogServices'
+import { BlogForm, BlogCard } from './BlogCard';
 
 
 export default class BlogFinal extends Component {
@@ -26,15 +24,10 @@ export default class BlogFinal extends Component {
 
     toggleUpdateMode = () => {
         const isUpdate = !this.state.isUpdate;
-        if (!isUpdate) // Reset the state as well.
-          this.setState({ isUpdate, post_data: [] });
-        else
-          this.setState({ isUpdate })
+        this.setState({ isUpdate })
     }
 
     componentDidMount() {
-      // console.log();
-
       this.getBlogList();
 
       if (this.props.editMode)
@@ -66,36 +59,43 @@ export default class BlogFinal extends Component {
       }]}
       );
     }
+
     getBlogList = () => {
-        // this.setState({ loading: true })
-        // this.blogService.getPostList()
-        // .then(data => this.setState({blog_posts: data, loading: false }))
-        // .catch(err => this.setState({ error: err.message, loading: false }))
+        this.setState({ loading: true })
+        this.blogService.getPostList()
+        .then(data => this.setState(
+        { 
+          blog_list: data, 
+          loading: false 
+        }))
+
+        .catch(err => this.setState({ error: err.message, loading: false }))
     }
+
     getPostContent = (id) => {
-        console.log("This Got Triggered", id);
-        this.setState({post_data: {
-          imgsource:"img", 
-          location: 1, 
-          title:"Title", 
-          description:"Blag", 
-          content:"Blablah"}
-        });
+        this.blogService.getPost(id)
+        .then(data => this.setState({post_data: data}))
+        .then(console.log(this.state.post_data))
+        .catch(e => console.log(e));
         this.toggleUpdateMode();
-        // this.blogService.getPost(id).then(data => this.setState({blog_posts: data}));
     }
-    createOrUpdatePost = ({props}) => {
-        const { post_id, imgsource, location, title, description, content } = props;
+    createOrUpdatePost = (props) => {
+        const { post_id } = this.state.post_data;
+        // console.log(props);
         if (this.state.isUpdate)
         { 
           this.updateBlog();
           this.toggleUpdateMode();
+          // Update State with new data.
         }
         else
-          this.createBlog();
+        {
+          this.createPost(props);
+        }
     }
     createPost = (props) => {
-        // this.blogService.createPost()
+      const { imgsource, location_id, title, description, content } = props;
+      this.blogService.createPost({imgsource, location_id, title, description, content});
     }
     updatePost = (props) => {
     // this.blogService.updatePost(1, {title: "This is a title omgdadsadasds", content: "This is a content2"}, this.state.blog_posts)
@@ -105,8 +105,7 @@ export default class BlogFinal extends Component {
     // .then(toast.success(`Updated`))
     }
     deletePost = (id) => {
-        console.log("Deleting Post", id);
-        // this.blogService.deletePost(id);
+        this.blogService.deletePost(id);
     }
     publishPost = (id) => {
       console.log("Publishing Post", id);
@@ -118,67 +117,20 @@ export default class BlogFinal extends Component {
     }
 
   renderForm() {
-    const locations = this.state.locations;
-    const isUpdate = this.state.isUpdate ? "Update" : "Create";
-    const { imgsource, location, title, description, content } = this.state.post_data;
-    console.log("DEBUGL2", imgsource, location, title, description, content);
+    const { post_id, location_id, title, description, content } = this.state.post_data;
     return (
-      <form className="card" onSubmit={this.onSubmit} onReset={this.toggleUpdateMode}>
-        <label htmlFor="form_title">Post Title</label>
-        <input 
-          id="form_title" 
-          type="text" 
-          name="blog_title_input" 
-          placeholder="Title name..." 
-          defaultValue = {title}
+        <BlogForm 
+          locations={this.state.locations}
+          isUpdate={this.state.isUpdate}
+          onSubmit={this.onSubmit}
+          onEditCancel={this.onEditCancel}
+          post_id={post_id}
+          location_id={location_id}
+          title={title}
+          description={description}
+          content={content}
         />
 
-        <label htmlFor="region">Region</label>
-        <select id="region" name="blog_region_input">
-          {locations ? locations.map((loc, i) => 
-            loc.id === location ? 
-            <option selected key={i} value={loc.loc_id}>{loc.name}</option>
-            : 
-            <option key={i} value={loc.loc_id}>{loc.name}</option>
-          ) : 
-            <option value="0">unspecified</option>
-          }
-        </select>
-
-        <label htmlFor="form_description">Description</label>
-        <textarea id="form_description" 
-          name="blog_description_input" 
-          minLength="300" 
-          maxLength="300" 
-          placeholder="text for the card of 300 characters.." 
-          style={{height:"100px"}}
-          value={description}
-        />
-
-        <label htmlFor="form_content">Content</label>
-        <textarea 
-          id="form_content" 
-          name="blog_content_input" 
-          placeholder="Write something.." 
-          style={{height:"400px"}}
-          value={content}
-        />
-
-        <div>
-          <label> Upload a thumbnail </label>
-          <input 
-          type="file" 
-          name="blog_image_input"
-          />
-          <br/>
-          <br/>
-        </div>
-
-        <div> 
-          <input type="submit" value={isUpdate} />
-          <input type="reset" value="cancel" className="button" />
-        </div>
-      </form>
     );
   }
 
@@ -195,50 +147,55 @@ export default class BlogFinal extends Component {
     const blog_image_input = form.blog_image_input;
     // extract the values
     const title = blog_title_input.value;
-    const region = blog_region_input.value;
+    const location_id = blog_region_input.value;
     const description = blog_description_input.value;
     const content = blog_content_input.value;
-    const image = blog_image_input.files[0];
-    // get the id and the update function from the props
-    const { post_id } = this.props;
+    const imgsource = blog_image_input.files[0].name;
+    console.log(imgsource);
     // run the update contact function
-    this.createOrUpdatePost({ post_id,  title, region, description, content, image });
+    this.createOrUpdatePost({ imgsource, location_id, title, description, content });
   };
-  renderViewMode() {
-    const json = [
-        {
-        imgsource: "https://www.w3schools.com/howto/img_nature.jpg",
-        location: "LOCATION",
-        title: "This is a Title",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries...",
-        date: "10/20/1994",
-        commentLength: "39",
-        post_id: "0",
-    },
+  
+  onEditCancel = evt => {
+    evt.preventDefault();
+    const form = evt.target;
+    const blog_description_input = form.blog_description_input;
+    const blog_content_input = form.blog_content_input;
+    const blog_image_input = form.blog_image_input;
+
+    if (this.state.isUpdate)
     {
-        imgsource: "https://www.w3schools.com/w3images/fjords.jpg",
-        location: "LOCATION",
-        title: "This is a Title",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries...",
-        date: "10/20/1994",
-        commentLength: "39",
-        post_id: "0",
-    }]
-    const { post_id, imgsource, location, title, description, content, date, author_id } = this.props;
-    const isLoggedIn = auth0Client.isAuthenticated();
-    const current_logged_in_user_id = isLoggedIn && auth0Client.getProfile().sub
-    const is_author = author_id === current_logged_in_user_id
+      this.setState({ post_data: [] });
+      this.toggleUpdateMode();
+    }
+    // ok no it's not gonna happen like that..
+    blog_description_input.value = "";
+    blog_content_input.value = "";
+    blog_image_input.value = "";
+    // Do better things...
+  }
+
+  renderViewMode(isDashboard = false) {
+    console.log(this.state.blog_list);
     return (
       <div className="section group">
-        <BlogCard props={json[0]} 
+      { this.state.blog_list.map((data, index) =>
+      isDashboard ? 
+        <BlogCard key={index} 
+        props = {data}
         functions = {
           {
-            delete: this.deletePost, 
-            edit: this.getPostContent,
-            publish: this.publishPost
+          delete: this.deletePost,
+          edit: this.getPostContent,
+          publish: this.publishPost
           }
-        }/>
-        <BlogCard props = {json[1]} />
+        }
+        /> 
+        :
+        <BlogCard key={index} props = {data} />
+      )}
+
+        
         {/* { imgsource && <img src={`//localhost:8080/images/${imgsource}`} alt={`the avatar of ${imgsource}`}/> }
         <span>
           {id} - {name}
@@ -259,12 +216,13 @@ export default class BlogFinal extends Component {
   };
   
   render() {
-    const { editMode } = this.state;
+    const editMode  = this.state.editMode;
+    const isLoggedIn = auth0Client.isAuthenticated();
     if (editMode) {
       return (
         <>
         {this.renderForm()}
-        {this.renderViewMode()}
+        {this.renderViewMode(true)}
         </>
       )
     } else {
