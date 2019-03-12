@@ -102,22 +102,25 @@ export default class Campaign extends Component {
                 <img alt="" src="http://placehold.it/1800x600&amp;text=IMAGE+PLACEHOLDER"/>
             </div>
             <h1 className="big-title-centered">First Campaign Title</h1>
-            <span className="label label-default">Campaign progress</span>
-            <div className="progress">
-                <div style={{width: "88%", animationdelay: "100ms"}} 
-                    className="progress-bar progress-bar-primary" 
-                    data-appear-progress-animation="88%" 
-                    data-appear-animation-delay="100"> 
-                <span className="progress-bar-tooltip" style={{opacity: "1"}}>88%</span> 
-                </div>
-            </div>
-               <div className="pull-left">Raised <strong>$176000</strong></div>
-               <div className="pull-right">Goal <strong className="accent-color">$200000</strong></div>
+            <div className="spacer-20"/>
+            <p className="lead">Nepal has been seriously devastated by the recent earthquake. Over 8,000 people have died (with death toll rising), thousands more are injured, and countless more have been displaced. Many homes, temples, and public monuments have been destroyed throughout the affected areas.</p>
             <div className="spacer-20"/>
             <div className="row">
                 <div className="col-md-5 col-sm-5">
-                    <p className="lead">Nepal has been seriously devastated by the recent earthquake. Over 8,000 people have died (with death toll rising), thousands more are injured, and countless more have been displaced. Many homes, temples, and public monuments have been destroyed throughout the affected areas.</p>
-                  </div>
+                        
+                    <span className="label label-default">Campaign progress</span>
+                    <div className="progress">
+                        <div style={{width: "88%", animationDelay: "100ms"}} 
+                            className="progress-bar progress-bar-primary" 
+                            data-appear-progress-animation="88%" 
+                            data-appear-animation-delay="100"> 
+                            <span className="progress-bar-tooltip" style={{opacity: "1"}}>88%</span> 
+                        </div>
+                    </div>
+                    <div className="pull-left">Raised <strong>$176000</strong></div>
+                    <div className="pull-right">Goal <strong className="accent-color">$200000</strong></div>
+                </div>
+
                 <div className="col-md-7 col-sm-7">
                     <ul className="list-group">
                           <li className="list-group-item">Total Donors<span className="badge">2000</span></li>
@@ -126,6 +129,7 @@ export default class Campaign extends Component {
                       </ul>
                        <a href="#" className="btn btn-primary btn-block" data-toggle="modal" data-target="#DonateModal">Donate Now</a>
                 </div>
+
                 <div className="spacer-20"/>
             </div>
             <p>Vestibulum quam nisi, pretium a nibh sit amet, consectetur hendrerit mi. Aenean imperdiet lacus sit amet elit porta, et malesuada erat bibendum. Cras sed nunc massa. Quisque tempor dolor sit amet tellus malesuada, malesuada iaculis eros dignissim. Aenean vitae diam id lacus fringilla maximus. Mauris auctor efficitur nisl, non blandit urna fermentum nec.</p>
