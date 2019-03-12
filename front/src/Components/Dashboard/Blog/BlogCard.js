@@ -73,9 +73,10 @@ export const BlogForm = (props) => {
 
 // @Todo getCorrect Data
 export const BlogCard = ({ props, functions }) => {
-    const { title, description, date, commentLength, post_id } = props;
+    let { title, description, date, commentLength, post_id } = props;
     let imgsource = "https://www.w3schools.com/howto/img_nature.jpg";
     let location = "unspecified"
+    commentLength = 72;
     return (
       <div className="col span_1_of_3">
       <div className="card">  
