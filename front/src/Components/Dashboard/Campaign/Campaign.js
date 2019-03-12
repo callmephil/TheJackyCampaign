@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './Campaign.css';
 
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import "react-tabs/style/react-tabs.css";
+
 const Modal = () => {
     return (
         // <div className="modal fade" id="DonateModal" tabindex="-1" role="dialog" data-backdrop="static">
@@ -96,18 +99,15 @@ const Modal = () => {
 export default class Campaign extends Component {
   render() {
     return (
-        <div className="row">
         <div className="col-md-12 content-block">
-            <div className="post-media">
-                <img alt="" src="http://placehold.it/1800x600&amp;text=IMAGE+PLACEHOLDER"/>
-            </div>
+            {/* HEAD */}
             <h1 className="big-title-centered">First Campaign Title</h1>
             <div className="spacer-20"/>
             <p className="lead">Nepal has been seriously devastated by the recent earthquake. Over 8,000 people have died (with death toll rising), thousands more are injured, and countless more have been displaced. Many homes, temples, and public monuments have been destroyed throughout the affected areas.</p>
             <div className="spacer-20"/>
+            {/* PROGRESS & PLEDGES  */}
             <div className="row">
                 <div className="col-md-5 col-sm-5">
-                        
                     <span className="label label-default">Campaign progress</span>
                     <div className="progress">
                         <div style={{width: "88%", animationDelay: "100ms"}} 
@@ -119,30 +119,53 @@ export default class Campaign extends Component {
                     </div>
                     <div className="pull-left">Raised <strong>$176000</strong></div>
                     <div className="pull-right">Goal <strong className="accent-color">$200000</strong></div>
+                    <div className="post-media">
+                        <img alt="" src="http://placehold.it/900x600&amp;text=IMAGE+PLACEHOLDER" />
+                    </div>
                 </div>
 
                 <div className="col-md-7 col-sm-7">
                     <ul className="list-group">
-                          <li className="list-group-item">Total Donors<span className="badge">2000</span></li>
+                          <li className="list-group-item">Total Funder<span className="badge">2000</span></li>
                           <li className="list-group-item">Days left to fundraising<span className="badge">10</span></li>
                           <li className="list-group-item">Countries helping<span className="badge">130</span></li>
                       </ul>
-                       <a href="#" className="btn btn-primary btn-block" data-toggle="modal" data-target="#DonateModal">Donate Now</a>
+                    <a href="#" className="btn btn-primary btn-block" data-toggle="modal" data-target="#DonateModal">Fund Now</a>
                 </div>
 
                 <div className="spacer-20"/>
             </div>
-            <p>Vestibulum quam nisi, pretium a nibh sit amet, consectetur hendrerit mi. Aenean imperdiet lacus sit amet elit porta, et malesuada erat bibendum. Cras sed nunc massa. Quisque tempor dolor sit amet tellus malesuada, malesuada iaculis eros dignissim. Aenean vitae diam id lacus fringilla maximus. Mauris auctor efficitur nisl, non blandit urna fermentum nec.</p>
-            <img alt="" className="align-left" src="http://placehold.it/640x400&amp;text=IMAGE+PLACEHOLDER" />
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa ipsum, efficitur a fermen tum sed, suscipit sit amet arcu. Ut ut finibus tortor, eu ultrices turpis. Mauris vitae elit nec diam elementum elementum. Mauris ante quam, consequat ac nibh placerat, lacinia sollicitudin mi. Duis facilisis nibh quam, sit amet interdum tellus sollicitudin tempor. Curabitur aliquam erat in nisl lobortis, ut pellentesque lectus viverra.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa ipsum, efficitur a fermen tum sed, suscipit sit amet arcu. Ut ut finibus tortor, eu ultrices turpis. Mauris vitae elit nec diam elementum elementum. Mauris ante quam, consequat ac nibh placerat, lacinia sollicitudin mi. Duis facilisis nibh quam, sit amet interdum tellus sollicitudin tempor. Curabitur aliquam erat in nisl lobortis, ut pellentesque lectus viverra. Aenean sodales aliquet arcu at aliquam. Vestibulum quam nisi, pretium a nibh sit amet, consectetur hendrerit mi. Aenean imperdiet lacus sit amet elit porta, et malesuada erat bibendum. Cras sed nunc massa. Quisque tempor dolor sit amet tellus malesuada, malesuada iaculis eros dignissim. Aenean vitae diam id lacus fringilla maximus. Mauris auctor efficitur nisl, non blandit urna fermentum nec.</p>
-        </div>
-        
-        <div className="spacer-20"/>
-        <h1 className="big-title-centered"> TODO MODAL </h1>
-        <div className="spacer-20"/>
-            <Modal />
-        </div>
+            {/* TABS  */}
+
+            <Tabs>
+                <TabList>
+                    <Tab>Description</Tab>
+                    <Tab>F.A.Q</Tab>
+                    <Tab>Comments</Tab>
+                    <Tab>Temporary</Tab>
+                </TabList>
+            
+                <TabPanel>
+                <p>Vestibulum quam nisi, pretium a nibh sit amet, consectetur hendrerit mi. Aenean imperdiet lacus sit amet elit porta, et malesuada erat bibendum. Cras sed nunc massa. Quisque tempor dolor sit amet tellus malesuada, malesuada iaculis eros dignissim. Aenean vitae diam id lacus fringilla maximus. Mauris auctor efficitur nisl, non blandit urna fermentum nec.</p>
+                <img alt="" className="align-left" src="http://placehold.it/640x400&amp;text=IMAGE+PLACEHOLDER" />
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa ipsum, efficitur a fermen tum sed, suscipit sit amet arcu. Ut ut finibus tortor, eu ultrices turpis. Mauris vitae elit nec diam elementum elementum. Mauris ante quam, consequat ac nibh placerat, lacinia sollicitudin mi. Duis facilisis nibh quam, sit amet interdum tellus sollicitudin tempor. Curabitur aliquam erat in nisl lobortis, ut pellentesque lectus viverra.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa ipsum, efficitur a fermen tum sed, suscipit sit amet arcu. Ut ut finibus tortor, eu ultrices turpis. Mauris vitae elit nec diam elementum elementum. Mauris ante quam, consequat ac nibh placerat, lacinia sollicitudin mi. Duis facilisis nibh quam, sit amet interdum tellus sollicitudin tempor. Curabitur aliquam erat in nisl lobortis, ut pellentesque lectus viverra. Aenean sodales aliquet arcu at aliquam. Vestibulum quam nisi, pretium a nibh sit amet, consectetur hendrerit mi. Aenean imperdiet lacus sit amet elit porta, et malesuada erat bibendum. Cras sed nunc massa. Quisque tempor dolor sit amet tellus malesuada, malesuada iaculis eros dignissim. Aenean vitae diam id lacus fringilla maximus. Mauris auctor efficitur nisl, non blandit urna fermentum nec.</p>
+                </TabPanel>
+
+                <TabPanel>
+                <h2>Any content 2</h2>
+                </TabPanel>
+
+                <TabPanel>
+                <h2>Any content 2</h2>
+                </TabPanel>
+
+                <TabPanel>
+                <h1 className="big-title-centered"> TODO MODAL </h1>
+                <Modal />
+                </TabPanel>
+            </Tabs>
+            </div>
     );
   };
 };
