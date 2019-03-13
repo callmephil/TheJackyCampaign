@@ -16,7 +16,8 @@ import Footer from './Components/Navigations/Footer/Footer';
 /* PAGES */
 import Home from './Components/Pages/Home/Home';
 // import Blog from './Components/Pages/Blog/Blog';
-import Campaign from './Components/Pages/Campaigns/Campaign';
+// import Campaign from './Components/Pages/Campaigns/Campaign';
+import Campaign from './Components/Dashboard/Campaign/Campaign';
 import ForOFor from './Components/Pages/404';
 import Dashboard from './Components/Dashboard/Dashboard'
 import Blog from './Components/Dashboard/Blog/BlogFinal'

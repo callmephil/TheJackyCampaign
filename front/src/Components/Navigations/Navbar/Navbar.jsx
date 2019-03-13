@@ -87,7 +87,7 @@ const NavItems = ({ Json }) => {
     <>
       {Json.map(x => (
         x.isNavlink ?
-          <NavLink exact to={x.link} className={x.className} activeStyle={{ backgroundColor: "green" }}>
+          <NavLink exact to={x.link} className={x.className} activeStyle={{ backgroundColor: "rgb(122, 173, 102)" }}>
             {x.text}
           </NavLink>
           :

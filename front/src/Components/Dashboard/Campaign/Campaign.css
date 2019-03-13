@@ -17,6 +17,7 @@
 }
 
 
+
 .label.label-default {
     background: #4C6575;
 }
@@ -115,6 +116,18 @@ span.progress-bar-tooltip::after {
     min-height: 1px;
     padding-right: 15px;
     padding-left: 15px;
+}
+
+.campaign-container {
+    /* position: relative; */
+    min-height: 1px;
+    padding-right: 30px;
+    padding-left: 30px;
+    background-color: whitesmoke;
+}
+
+.campaign-container h1 {
+    font-family: 'Times New Roman', Times, sans-serif;
 }
 
 /* .col-md-5 {
@@ -289,10 +302,74 @@ p.lead {
 
 /* TEMPORARY */
 p.drop-caps.secondary:first-child::first-letter, .accent-bg, .btn-primary, .btn-primary.disabled, .btn-primary[disabled], fieldset[disabled] .btn-primary, .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover, .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus, .btn-primary.disabled:active, .btn-primary[disabled]:active, fieldset[disabled] .btn-primary:active, .btn-primary.disabled.active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary.active, .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus, .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus, .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus, .label-primary, .progress-bar-primary, a.list-group-item.active, a.list-group-item.active:hover, a.list-group-item.active:focus, .panel-primary > .panel-heading, .carousel-indicators .active, .flex-control-nav a:hover, .flex-control-nav a.flex-active, .media-box .media-box-wrapper, .icon-box.icon-box-style1:hover .ico, .owl-theme .owl-page.active span, .owl-theme .owl-controls.clickable .owl-page:hover span, .ibox-effect.ibox-dark .ibox-icon i:hover, .ibox-effect.ibox-dark:hover .ibox-icon i, .ibox-border.ibox-effect.ibox-dark .ibox-icon i::after, .icon-box .ibox-icon i, .icon-box .ibox-icon img, .icon-box .ibox-icon i, .icon-box .ibox-icon img, .icon-box.ibox-dark.ibox-outline:hover .ibox-icon i, .pricing-column.highlight h3, #back-to-top:hover, .widget_donations, .fblock-image-overlay, .overlay-accent, .page-banner, .tag-cloud a:hover, .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus, .accordion-heading .accordion-toggle.active, .predefined-amount li label.selected, .donation-choice-breaker, .event-date, .featured-links, hr.sm, hr.sm::before, hr.sm::after, .gallery-updates, .block-title::before, .block-title::after, .widgettitle::before, .widgettitle::after, .timer-col.count-days {
-    background-color: #42b8d4;
+    background-color: rgb(122, 173, 102)
 }
 
 a, .text-primary, .btn-primary .badge, .btn-link, a.list-group-item.active > .badge, .nav-pills > .active > a > .badge, p.drop-caps:first-child::first-letter, .accent-color, .nav-np .next:hover, .nav-np .prev:hover, .basic-link, .pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus, .icon-box-inline span, .pricing-column h3, .post .post-title a:hover, a, .post-actions .comment-count a:hover, .pricing-column .features a:hover, a:hover, .list-group-item a:hover, .icon-box.ibox-plain .ibox-icon i, .icon-box.ibox-plain .ibox-icon img, .icon-box.ibox-border .ibox-icon i, .icon-box.ibox-border .ibox-icon img, address strong, ul.checks > li > i, ul.angles > li > i, ul.carets > li > i, ul.chevrons > li > i, ul.icons > li > i, .widget li .meta-data a:hover, .sort-source li.active a, #menu-toggle:hover, .footer-menu li a:hover, .megamenu-sub-title i, .dd-menu .megamenu-container ul li a:hover, .fact-ico, .widget_categories ul li a:hover, .widget_archive ul li a:hover, .widget_recent_entries ul li a:hover, .widget_recent_entries ul li a:hover, .widget_recent_comments ul li a:hover, .widget_links ul li a:hover, .widget_meta ul li a:hover, .widget.recent_posts ul li h5 a:hover, .testimonial-block blockquote::before, .testimonial-info strong, .header-style2 .dd-menu > li:hover > a, .header-style3 .dd-menu > li:hover > a, .widget_links ul li.active a, .causes-list-item h4 a, .urgent-cause .post-title a, .site-footer .sp-links:hover strong, .header-info-col i, .flex-caption-cause h3 a, .dd-menu > li > a > i, .cause-target, .owl-carousel .blog-grid-item h3 a:hover, .sticky .dd-menu > li:hover > a > i, .header-style2 .dd-menu > li:hover > a > i, .header-style3 .dd-menu > li:hover > a > i {
-    color: #42b8d4;
+    color:  rgb(122, 173, 102)
 }
 
+
+/* Pledges */
+.pledge-modal-content {
+    position:relative;
+    background-color:#fff;
+    -webkit-background-clip:padding-box;
+    background-clip:padding-box;
+    border:1px solid rgba(0,0,0,.2);
+    border-radius:4px;
+    outline:0;
+}
+
+.pledge-modal-header h4 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.predefined-amount{
+	list-style-type: none;
+	margin:0;
+}
+.predefined-amount li{
+	display:inline-block;
+	margin-right:5px;
+}
+.predefined-amount li label{
+	cursor:pointer;
+	border:2px solid #e6e6e6;
+	padding:6px 10px;
+	border-radius:3px;
+}
+.predefined-amount li label.selected{
+	color:#fff;
+}
+.predefined-amount li input{
+	display: none;
+}
+
+.donation-choice-breaker{
+    display: none;
+}
+
+.donate-amount-option{
+	text-align:center;
+	padding-top:20px;
+	padding-bottom:5px;
+}
+.donate-amount-option .input-group{
+	width:70%;
+	margin-left:15%;
+}
+
+.pricing-table ul {
+	margin: 20px 0 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+.pricing-table li {
+    border-top: 1px solid #ddd;
+	padding: 10px 0;
+}
