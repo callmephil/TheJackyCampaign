@@ -78,7 +78,7 @@ export const BlogCard = ({ props, functions }) => {
     let location = "unspecified"
     commentLength = 72;
     return (
-      <div className="col span_1_of_3">
+      <div className="layout-col span_1_of_3">
       <div className="card">  
           <div className="thumbnail">
             <img src= {imgsource}/>

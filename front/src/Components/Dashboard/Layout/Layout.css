@@ -1,17 +1,21 @@
+.layout-container {
+	padding-left: 15px;
+}
+
 /*  SECTIONS  */
-.section {
+.layout-section {
 	clear: both;
 	padding: 0px;
 	margin: 0px;
 }
 
 /*  COLUMN SETUP  */
-.col {
+.layout-col {
 	display: block;
     float:left;
 	margin: 1% 0 1% 0.5%;
 }
-.col:first-child { margin-left: 0; }
+/* .layout-col:first-child { margin-left: 0; } */
 
 /*  GROUPING  */
 .group:before,
@@ -26,8 +30,9 @@
 
 /*  GO FULL WIDTH BELOW 480 PIXELS */
 @media only screen and (max-width: 480px) {
-	.col {  margin: 1% 0 1% 0%; }
+	.layout-col {  margin: 1% 0 1% 0%; }
 	.span_3_of_3, .span_2_of_3, .span_1_of_3 { width: 100%; }
+	.layout-container { padding-left: 0px }
 }
 
 .font-size-12 {

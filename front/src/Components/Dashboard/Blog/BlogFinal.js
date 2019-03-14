@@ -178,7 +178,8 @@ export default class BlogFinal extends Component {
   renderViewMode(isDashboard = false) {
     console.log(this.state.blog_list);
     return (
-      <div className="section group">
+      <div className="layout-container"> 
+      <div className="layout-section group">
       { this.state.blog_list.map((data, index) =>
       isDashboard ? 
         <BlogCard key={index} 
@@ -211,6 +212,7 @@ export default class BlogFinal extends Component {
           </div>
         : false
         } */}
+      </div>
       </div>
     );
   };
