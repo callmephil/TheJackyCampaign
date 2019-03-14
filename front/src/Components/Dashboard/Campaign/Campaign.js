@@ -2,70 +2,45 @@ import React, { Component } from 'react';
 import './Campaign.css';
 
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+
 import "react-tabs/style/react-tabs.css";
+
+import { Accordion, AccordionItem } from 'react-light-accordion';
+import './faq.css';
 
 const FAQ = () => {
     // https://codepen.io/Sp00ky/pen/zBZZvq
     return (
         <div>
-  <div className="accordion-option">
-    <h3 className="title">Knowledge</h3>
-    {/* <a className="toggle-accordion active" accordion-id="#accordion"></a> */}
-  </div>
-  <div className="clearfix"></div>
-  <div className="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-    <div className="panel panel-default">
-      <div className="panel-heading" role="tab" id="headingOne">
-        <h4 className="panel-title">
-        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Collapsible Group Item #1
-        </a>
-      </h4>
-      </div>
-      <div id="collapseOne" className="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-        <div className="panel-body">
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-          on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
-          raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            <Accordion atomic={true}>
+ 
+            <AccordionItem title="Question 1 ?">
+                <DummyContent />
+            </AccordionItem>
+        
+            <AccordionItem title="Question 2 ?">
+                <DummyContent />
+            </AccordionItem>
+        
+            <AccordionItem title="Question 3 ?">
+                <DummyContent />
+            </AccordionItem>
+        
+            </Accordion>
         </div>
-      </div>
-    </div>
-    <div className="panel panel-default">
-      <div className="panel-heading" role="tab" id="headingTwo">
-        <h4 className="panel-title">
-        <a className="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          Collapsible Group Item #2
-        </a>
-      </h4>
-      </div>
-      <div id="collapseTwo" className="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
-        <div className="panel-body">
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-          on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
-          raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-        </div>
-      </div>
-    </div>
-    <div className="panel panel-default">
-      <div className="panel-heading" role="tab" id="headingThree">
-        <h4 className="panel-title">
-        <a className="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-          Collapsible Group Item #3
-        </a>
-      </h4>
-      </div>
-      <div id="collapseThree" className="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
-        <div className="panel-body">
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-          on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
-          raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
     );
 }
+
+const DummyContent = () => (
+    <p style={{ padding: '18px' }}>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+      non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+  );
 
 const Pledges = () => {
     return (
@@ -202,7 +177,7 @@ export default class Campaign extends Component {
                 <ProgressBar />
                 <div className="spacer-20"/>
                 <div className="post-media">
-                    <iframe width="560" height="315" 
+                    <iframe width="560" height="500px" 
                     src="https://www.youtube.com/embed/coIXMyWzpAU" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
