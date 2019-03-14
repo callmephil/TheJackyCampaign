@@ -176,16 +176,18 @@ export default class Campaign extends Component {
             <div className="col-md-5 col-sm-5">
                 <ProgressBar />
                 <div className="spacer-20"/>
-                <div className="post-media">
-                    <iframe width="560" height="500px" 
+
+                <div class="video-container">
+                    <iframe width="853" height="480" 
                     src="https://www.youtube.com/embed/coIXMyWzpAU" 
                     frameborder="0" 
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
                     allowfullscreen>
                     </iframe>
-
-                    {/* <img alt="" src="http://www.lebanoninapicture.com/Prv/Images/Pages/Page_136076/heaven-on-earth-lebanon-chouwen-lake-trees-heav-9-8-2017-3-01-16-pm-l.jpg" /> */}
                 </div>
+
+                {/* <div className="post-media">
+                    <img alt="" src="http://www.lebanoninapicture.com/Prv/Images/Pages/Page_136076/heaven-on-earth-lebanon-chouwen-lake-trees-heav-9-8-2017-3-01-16-pm-l.jpg" /> 
+                </div> */}
             </div>
 
             <div className="col-md-7 col-sm-7">
