@@ -2,14 +2,17 @@
   border-radius: 5px;
   /* border: 1px solid #d9d9d9; */
 }
+
 .accordion .accordion-item:first-child .title {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
+
 .accordion .accordion-item:last-child .title {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }
+
 .accordion .accordion-item .title {
   background-color: #f6f6f6;
   color: #282828;
@@ -27,6 +30,7 @@
   transition: 0.4s;
   border-bottom: 1px solid #444;
 }
+
 .accordion .accordion-item .title:after {
   content: '\2304';
   font-size: 18px;
@@ -34,6 +38,7 @@
   float: right;
   margin-left: 5px;
 }
+
 .accordion .accordion-item .panel {
   max-height: 0;
   -webkit-transition: max-height 0.15s ease-out;
@@ -41,12 +46,15 @@
   transition: max-height 0.15s ease-out;
   overflow: hidden;
 }
+
 .accordion .accordion-item.active .title {
   background-color: #eee;
 }
+
 .accordion .accordion-item.active .title:after {
   content: '\2303';
 }
+
 .accordion .accordion-item.active .panel {
   max-height: 500px;
   -webkit-transition: max-height 0.25s ease-in;

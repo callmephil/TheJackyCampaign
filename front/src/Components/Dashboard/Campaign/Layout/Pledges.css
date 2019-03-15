@@ -1,0 +1,68 @@
+.pledge-modal-content {
+    position: relative;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 4px;
+    outline: 0;
+}
+
+.pledge-modal-header h4 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.predefined-amount {
+    list-style-type: none;
+    margin: 0;
+}
+
+.predefined-amount li {
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 15px;
+}
+
+.predefined-amount li label {
+    cursor: pointer;
+    border: 2px solid #e6e6e6;
+    padding: 6px 10px;
+    border-radius: 3px;
+}
+
+.predefined-amount li label.selected {
+    color: #fff;
+}
+
+.predefined-amount li input {
+    display: none;
+}
+
+.donation-choice-breaker {
+    display: none;
+}
+
+.donate-amount-option {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 5px;
+}
+
+.donate-amount-option .input-group {
+    width: 70%;
+    margin-left: 15%;
+}
+
+.pricing-table ul {
+    margin: 20px 0 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pricing-table li {
+    border-top: 1px solid #ddd;
+    padding: 10px 0;
+}
