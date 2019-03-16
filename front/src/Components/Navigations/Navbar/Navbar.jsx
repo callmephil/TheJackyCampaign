@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { brand, NavbarMenu, NavbarBurger, NavbarStart, Navbar, NavbarLink, NavbarDropdown, NavbarDivider, NavbarEnd, NavbarBrand, NavbarItem, Button, Icon, Control, Field } from 'bloomer';
 
 const DropDownLinks = {
   Buttons: [
@@ -96,10 +97,10 @@ const NavItems = ({ Json }) => {
             {x.text}
           </NavLink>
         ) : (
-          <Link to={x.link} className={x.className}>
-            {x.text}
-          </Link>
-        )
+            <Link to={x.link} className={x.className}>
+              {x.text}
+            </Link>
+          )
       )}
     </>
   );
@@ -120,10 +121,20 @@ const NavDropDown = () => {
 
 // @!SHOULD RECIEVE ISLOGGEDIN
 // @!SHOULD HANDLE MOBILE VERSION
-export default class Navbar extends Component {
+export default class Navbars extends Component {
+  state = { isActive: false, isDropdownOpen: false };
+
+  onClickNav = () => {
+    this.setState((state) => ({ isActive: !state.isActive }));
+  }
+
+  onClickDropdown = () => {
+    this.setState((state) => ({ isDropdownOpen: !state.isDropdownOpen }));
+  }
   render() {
     return (
-      <section>
+      <>
+        {/* <section>
         <nav
           className="navbar is-dark"
           role="navigation"
@@ -163,7 +174,40 @@ export default class Navbar extends Component {
             </div>
           </div>
         </nav>
-      </section>
+      </section> */}
+        <Navbar className="is-dark">
+          <NavbarBrand>
+            <NavbarItem>
+              <Link to="/" className="navbar-item">
+                <img src="/Logo.svg" width="142" height="28" alt="Capstone" />
+              </Link>
+            </NavbarItem>
+            <NavbarBurger isActive={this.state.isActive} onClick={this.onClickNav} />
+          </NavbarBrand>
+          <NavbarMenu isActive={this.state.isActive} onClick={this.onClickNav}>
+            <NavbarStart>
+              <NavItems Json={DropDownLinks.Main} />
+              <NavbarItem hasDropdown isHoverable>
+                <NavDropDown />
+                {/* TODO SWITCH TO THIS FOR DROPDOWN
+            <NavbarLink href='#/documentation'>Documentation</NavbarLink> 
+              <NavbarDropdown>
+            </NavbarDropdown> 
+            */}
+              </NavbarItem>
+            </NavbarStart>
+            <NavbarEnd>
+              <NavbarItem>
+                <div className="buttons">
+                  <NavItems
+                    Json={FindByIndexes(DropDownLinks.Buttons, [0, 1])}
+                  />
+                </div>
+              </NavbarItem>
+            </NavbarEnd>
+          </NavbarMenu>
+        </Navbar>
+      </>
     );
   }
 }
