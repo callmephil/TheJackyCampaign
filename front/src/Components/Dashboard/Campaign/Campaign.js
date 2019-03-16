@@ -30,22 +30,17 @@ export default class Campaign extends Component {
   render() {
     return (
       <div className="campaign-container content-block">
-        {/* HEAD */}
         <CampaignTitle />
-        {/* PROGRESS & PLEDGES  */}
         <div className="row">
           <div className="col-md-5 col-sm-5">
             <ProgressBar />
             <div className="spacer-20" />
-
             <CampaignMedia />
           </div>
-
           <div className="col-md-7 col-sm-7">
             <Statistics />
             <PledgeForm />
           </div>
-
           <div className="spacer-20" />
         </div>
         <CampaignTabs />

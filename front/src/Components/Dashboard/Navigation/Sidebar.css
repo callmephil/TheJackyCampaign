@@ -22,7 +22,7 @@
     background-color: rgb(30, 30, 30) !important;
 }
 
-.main-menu-expand-color > span {
+.main-menu-expand-color>span {
     color: #999;
 }
 
@@ -160,6 +160,7 @@ nav.main-menu li.active>a,
 }
 
 @media only screen and (max-width: 200px) {
+
     /* For mobile phones: */
     .main-menu-expand {
         width: 60px !important;
@@ -182,13 +183,15 @@ textarea,
 button,
 select,
 a {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .w3-container {
     padding: 0.01em 16px;
 }
 
-*, ::before, ::after {
+*,
+::before,
+::after {
     box-sizing: inherit;
 }

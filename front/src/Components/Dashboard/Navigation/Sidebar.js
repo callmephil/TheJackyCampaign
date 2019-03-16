@@ -20,27 +20,27 @@ export default class Sidebar extends Component {
         let toggleClassName = !this.state.isCollasped ? "main-menu" : "main-menu main-menu-expand";
         const Links = [
             {
-                link:"/admin/campaign",
-                icon:"fa fa-2x fa-home",
-                text:"Campaign Editor",
+                link: "/admin/campaign",
+                icon: "fa fa-2x fa-home",
+                text: "Campaign Editor",
                 position: ""
             },
             {
-                link:"/admin/blog",
-                icon:"fa fa-2x fa-newspaper",
-                text:"Blog Editor",
+                link: "/admin/blog",
+                icon: "fa fa-2x fa-newspaper",
+                text: "Blog Editor",
                 position: ""
             },
             {
-                link:"/admin/users",
-                icon:"fa fa-2x fa-users",
-                text:"Users",
+                link: "/admin/users",
+                icon: "fa fa-2x fa-users",
+                text: "Users",
                 position: ""
             },
             {
-                link:"/#",
-                icon:"fa fa-2x fa-power-off",
-                text:"Logout",
+                link: "/#",
+                icon: "fa fa-2x fa-power-off",
+                text: "Logout",
                 position: "logout"
             },
         ];
@@ -59,16 +59,16 @@ export default class Sidebar extends Component {
                             </li>
                         </div>
                         {Links.map((x, i) => (
-                        <ul className={x.position} key={i}>
-                            <li>
-                                <NavLink to={x.link} activeStyle={{ color: "#fff", backgroundColor: "#5fa2db" }}>
-                                    <i className={x.icon} />
-                                    <span className="nav-text">
-                                        {x.text}
-                                    </span>
-                                </NavLink>
-                            </li>
-                        </ul>
+                            <ul className={x.position} key={i}>
+                                <li>
+                                    <NavLink to={x.link} activeStyle={{ color: "#fff", backgroundColor: "#5fa2db" }}>
+                                        <i className={x.icon} />
+                                        <span className="nav-text">
+                                            {x.text}
+                                        </span>
+                                    </NavLink>
+                                </li>
+                            </ul>
                         ))}
                     </nav>
                 </div>

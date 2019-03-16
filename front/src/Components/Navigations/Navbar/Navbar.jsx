@@ -85,16 +85,22 @@ const FindByIndexes = (data, arr = []) => {
 const NavItems = ({ Json }) => {
   return (
     <>
-      {Json.map(x => (
-        x.isNavlink ?
-          <NavLink exact to={x.link} className={x.className} activeStyle={{ backgroundColor: "rgb(122, 173, 102)" }}>
+      {Json.map(x =>
+        x.isNavlink ? (
+          <NavLink
+            exact
+            to={x.link}
+            className={x.className}
+            activeStyle={{ backgroundColor: "rgb(122, 173, 102)" }}
+          >
             {x.text}
           </NavLink>
-          :
+        ) : (
           <Link to={x.link} className={x.className}>
             {x.text}
           </Link>
-      ))}
+        )
+      )}
     </>
   );
 };
@@ -124,8 +130,8 @@ export default class Navbar extends Component {
           aria-label="main navigation"
         >
           <div className="navbar-brand">
-            <Link to="/" className="navbar-item" >
-              <img src="/Logo.svg" width="142" height="28" alt="Capstone"></img>
+            <Link to="/" className="navbar-item">
+              <img src="/Logo.svg" width="142" height="28" alt="Capstone" />
             </Link>
 
             <div

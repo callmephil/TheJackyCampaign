@@ -3,7 +3,7 @@ import {
     onGet,
     onGetList,
     onDelete
-  } from './AxiosUtils';
+} from './AxiosUtils';
 
 /*
 *** Prototypes
@@ -111,7 +111,7 @@ export class CampaignServices {
         return post;
     };
     /* ====================== Campaign POST END ======================= */
-    
+
     /* ====================== Campaign F.A.Q END START ======================= */
     getCampaignPost = async (campaign_id) => {
         return await onGet(`campaign/post/get/${campaign_id}`);
@@ -161,7 +161,7 @@ export class CampaignServices {
         return await onGetList(`campaign/pledge/list/${campaign_id}`, { order })
     }
     // createPledge
-    
+
     // updatePledge
 
     // deletePledge
