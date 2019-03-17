@@ -1,3 +1,10 @@
+.h1-big-title {
+  font-weight: 400;
+  font-size: 2.4rem;
+  line-height: 3rem;
+  margin-bottom: 20px;
+}
+
 .accordion {
   border-radius: 5px;
   /* border: 1px solid #d9d9d9; */
@@ -17,7 +24,7 @@
   background-color: #f6f6f6;
   color: #282828;
   font-weight: 500;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   line-height: 2.4rem;
   cursor: pointer;
   padding: 18px;
@@ -28,7 +35,8 @@
   -webkit-transition: 0.4s;
   -o-transition: 0.4s;
   transition: 0.4s;
-  border-bottom: 1px solid #444;
+  border: 0.1rem solid #DCDEDD;
+  font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .accordion .accordion-item .title:after {
@@ -49,6 +57,7 @@
 
 .accordion .accordion-item.active .title {
   background-color: #eee;
+  border-bottom: 0 !important;
 }
 
 .accordion .accordion-item.active .title:after {
@@ -60,4 +69,12 @@
   -webkit-transition: max-height 0.25s ease-in;
   -o-transition: max-height 0.25s ease-in;
   transition: max-height 0.25s ease-in;
+  border-left: 0.1rem solid #DCDEDD;
+  border-bottom: 0.1rem solid #DCDEDD;
+  border-right:  0.1rem solid #DCDEDD;
+}
+
+.title:not(:last-child) {
+  margin-top: 1.1rem !important;
+  margin-bottom: 0 !important;
 }

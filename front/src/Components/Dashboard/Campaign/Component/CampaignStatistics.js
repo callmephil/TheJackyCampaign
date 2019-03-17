@@ -1,11 +1,11 @@
 import React from "react";
-import "../Layout/Progress.css";
-import "../Layout/Tables.css";
+import "../Styles/Progress.css";
+import "../Styles/Tables.css";
 
 // Should Recieve an array of [CurrentRaisedAmount, AmountToCollect]
 // Should Calculate the % Remaining (n = (a / c) * 100;)
 export const ProgressBar = () => {
-  const CurrentRaisedAmount = 86004;
+  const CurrentRaisedAmount = 186004;
   const AmountToCollect = 200000;
   const pourcentage = `${((CurrentRaisedAmount / AmountToCollect) * 100).toFixed(1)}%`;
   return (

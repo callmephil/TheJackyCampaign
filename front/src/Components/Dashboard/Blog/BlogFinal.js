@@ -179,7 +179,7 @@ export default class BlogFinal extends Component {
     return (
       <div className="layout-container">
         <div className="layout-section group">
-          {this.state.blog_list.map((data, index) =>
+          {this.state.blog_list && this.state.blog_list.map((data, index) =>
             isDashboard ?
               <BlogCard key={index}
                 props={data}
