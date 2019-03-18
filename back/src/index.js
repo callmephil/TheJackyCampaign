@@ -1,3 +1,5 @@
+require('dotenv').config();
+console.log(process.env)
 import app from './app'
 import Connection from './Database/Connection'
 import { isLoggedIn } from './Middleware/auth'
