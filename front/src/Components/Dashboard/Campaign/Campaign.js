@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const CampaignTitle = () => {
   return (
     <>
-      <h1 className="big-title-centered">First Campaign Title</h1>
+      <h1 className="big-title-centered">The Jacky Campaign</h1>
       <div className="spacer-20" />
       <p className="lead">
         Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -75,11 +75,11 @@ export default class Campaign extends Component {
     this.setState({ progress })
     this.onSubmitUpdateFunder();
 
-    toast.success(`${newAmount} donated by annonymous !`);
+    toast.success(`${newAmount} donated by annonymous !`, {toastId:2});
     }
     catch (e) {
       if (e.message === 'NO_SELECT')
-        toast.error(`You have to select a pledge first`)
+        toast.error(`You have to select a pledge first`, {toastId:1})
       else
         console.log(`onSubmitUpdateProgress ${e}`);
     }

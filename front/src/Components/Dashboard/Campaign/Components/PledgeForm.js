@@ -25,20 +25,8 @@ export default class PledgeForm extends Component {
                 rewards: ["Your name somewhere", "Your name somewhere else", "the name of someone else somewhere", "A Snicker"]
             }, {
                 pledge_id: 5,
-                value: 200,
+                value: 150,
                 rewards: ["Your name somewhere", "Your name somewhere else", "the name of someone else somewhere", "A Snicker", "And a Mars"]
-            }, {
-                pledge_id: 6,
-                value: 1000,
-                rewards: ["You're rich enough ! you do not need any rewards"]
-            }, {
-                pledge_id: 7,
-                value: 1500,
-                rewards: ["You're rich enough ! you do not need any rewards"]
-            }, {
-                pledge_id: 8,
-                value: 30000,
-                rewards: ["You're rich enough ! you do not need any rewards"]
             }
         ]
     }

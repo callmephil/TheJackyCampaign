@@ -200,7 +200,7 @@ export default class Navbars extends Component {
               <NavbarItem>
                 <div className="buttons">
                   <NavItems
-                    Json={FindByIndexes(DropDownLinks.Buttons, [0, 1])}
+                    Json={FindByIndexes(DropDownLinks.Buttons, [2])}
                   />
                 </div>
               </NavbarItem>

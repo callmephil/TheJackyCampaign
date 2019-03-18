@@ -40,7 +40,7 @@ export const Statistics = ({stats}) => {
   return (
     <ul className="list-group">
       <li className="list-group-item">
-        Total Funder<span className="badge">{totalFunder}</span>
+        Total Funders<span className="badge">{totalFunder}</span>
       </li>
       <li className="list-group-item">
         Days left to fundraising<span className="badge">{dayleft}</span>
