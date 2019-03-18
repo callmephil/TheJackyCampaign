@@ -2,10 +2,20 @@
   "name": "back",
   "version": "1.0.0",
   "description": "Phil CapstoneProject",
+  "engines": {},
   "main": "index.js",
   "babel": {
     "presets": [
       "@babel/preset-env"
+    ],
+    "plugins": [
+      "@babel/plugin-transform-regenerator",
+      [
+        "@babel/plugin-transform-runtime",
+        {
+          "regenerator": true
+        }
+      ]
     ]
   },
   "scripts": {
@@ -45,6 +55,9 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^24.1.0",
     "jest": "^24.1.0",
-    "regenerator-runtime": "^0.13.1"
+    "regenerator-runtime": "^0.13.1",
+    "@babel/plugin-transform-runtime": "^7.3.4",
+    "@babel/runtime": "^7.3.4",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2"
   }
 }
