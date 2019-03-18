@@ -54,13 +54,14 @@ const request = async (path, options) => {
     }
     const config = {
       method: "get",
-      url:  `${API_URL}${path}`,
+      url:  `${API_URL}/${path}`,
       headers: {
         Authorization: `Bearer ${auth0Client.getIdToken()}`,
         'Content-Type': options && options.data ? 'multipart/form-data' : undefined
       },
       ...options
     }
+    console.log("DEBUG", config.url);
     const response = await axios(config);
     const answer = response.data
     if (answer.success) {

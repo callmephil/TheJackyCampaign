@@ -9,7 +9,7 @@
  * */
 export const APP_URL_HTTP = 'http://localhost:3000';
 export const APP_URL_HTTPS = 'https://localhost:3000';
-export const APP_URL = '//localhost:300';
+export const APP_URL = '//localhost:3000';
 export const API_URL_HTTP = 'http://localhost:8080';
 export const API_URL_HTTPS = 'https://localhost:8080';
 export const API_URL = '//localhost:8080';

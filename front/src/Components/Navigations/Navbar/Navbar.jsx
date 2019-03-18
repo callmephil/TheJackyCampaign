@@ -86,9 +86,9 @@ const FindByIndexes = (data, arr = []) => {
 const NavItems = ({ Json }) => {
   return (
     <>
-      {Json.map(x =>
+      {Json.map((x, i) =>
         x.isNavlink ? (
-          <NavLink
+          <NavLink key={i}
             exact
             to={x.link}
             className={x.className}
@@ -97,7 +97,7 @@ const NavItems = ({ Json }) => {
             {x.text}
           </NavLink>
         ) : (
-            <Link to={x.link} className={x.className}>
+            <Link key={i} to={x.link} className={x.className}>
               {x.text}
             </Link>
           )
