@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as auth0Client from "../Utils/Auth/Auth";
 import toast from 'react-toastify';
-
+import {API_URL} from "../constants";
 const onGet = async (url) => {
   const answer = await request(url);
   if (!answer.success)
@@ -54,7 +54,7 @@ const request = async (path, options) => {
     }
     const config = {
       method: "get",
-      url: `//localhost:8080/${path}`,
+      url:  `${API_URL}${path}`,
       headers: {
         Authorization: `Bearer ${auth0Client.getIdToken()}`,
         'Content-Type': options && options.data ? 'multipart/form-data' : undefined
@@ -65,7 +65,7 @@ const request = async (path, options) => {
     const answer = response.data
     if (answer.success) {
       //toast.error(`Created`);
-      //  this.setState({ isLoading: false });  
+      //  this.setState({ isLoading: false });
     } else {
       //  this.setState({ error_message: answer.message, isLoading: false });
       console.log('client error:' + answer.message);

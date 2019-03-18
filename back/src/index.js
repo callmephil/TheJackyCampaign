@@ -7,9 +7,10 @@ import campaignControllerApp from './Controller/campaign'
 import blogControllerApp from './Controller/blog'
 /* Middleware */
 import upload from './Middleware/uploads'
+import {BACK_PORT} from "../../back/src/constants";
 
 const start = async () => {
-  /* Database Controllers */ 
+  /* Database Controllers */
   const DatabaseControllers = await Connection();
   const { usersController, campaignController, blogController }  = DatabaseControllers;
   app.get('/', (req, res, next) => res.send("ok"));
@@ -19,8 +20,8 @@ const start = async () => {
   app.use('/users', users);
 
   const campaigns = await campaignControllerApp(campaignController, isLoggedIn, upload);
-  app.use('/campaign', campaigns);  
-  
+  app.use('/campaign', campaigns);
+
   const blog = await blogControllerApp(blogController, isLoggedIn, upload);
   app.use('/blog', blog);
 
@@ -38,7 +39,7 @@ const start = async () => {
   //     next(e)
   //   }
   // })
-  
+
   app.use((err, req, res, next) => {
     console.error(err)
     const message = err.message
@@ -48,7 +49,7 @@ const start = async () => {
     })
   })
 
-  app.listen(8080, () => console.log('server listening on port 8080'))
+  app.listen(BACK_PORT, () => console.log(`server listening on port ${BACK_PORT}`))
 }
 
 start();
