@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import "./Campaign.css";
-import CampaignTabs from "./Component/CampaignTabs";
-import PledgeForm from "./Component/PledgeForm";
-import { ProgressBar, Statistics } from "./Component/CampaignStatistics";
-import CampaignMedia from "./Component/CampaignMedia";
+import CampaignTabs from "./Components/CampaignTabs";
+import PledgeForm from "./Components/PledgeForm";
+import { ProgressBar, Statistics } from "./Components/CampaignStatistics";
+import CampaignMedia from "./Components/CampaignMedia";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CampaignTitle = () => {
   return (
@@ -27,19 +29,75 @@ const CampaignTitle = () => {
 };
 
 export default class Campaign extends Component {
+  constructor() {
+    super();
+    this.state = {
+      progress: {
+        currentProgress: 189400,
+        goal: 200000,
+      },
+      stats: {
+        totalFunder: 10,
+        startDate: '18/03/2019',
+        endDate: '31/03/2019',
+        location: 'Lebanon'
+      }
+    }
+  }
+
+  onSubmitUpdateFunder = () => {
+    try {
+      const getFunderCount = this.state.stats.totalFunder;
+      const stats = { totalFunder: getFunderCount + 1,
+        startDate: '18/03/2019',
+        endDate: '31/03/2019',
+        location: 'Lebanon' }
+      this.setState({ stats });
+
+    } catch (e)
+    {
+      console.log(e);
+    }
+  }
+
+  onSubmitUpdateProgress = (evt, newAmount) => 
+  {
+    try {
+    evt.preventDefault();
+
+    if (newAmount === 0)
+      throw new Error('NO_SELECT');
+
+    const currProgress = this.state.progress.currentProgress;
+    // is The Campaign still active?
+    const newProgress = currProgress + newAmount;
+    const progress = {currentProgress: newProgress, goal: this.state.progress.goal}
+    this.setState({ progress })
+    this.onSubmitUpdateFunder();
+
+    toast.success(`${newAmount} donated by annonymous !`);
+    }
+    catch (e) {
+      if (e.message === 'NO_SELECT')
+        toast.error(`You have to select a pledge first`)
+      else
+        console.log(`onSubmitUpdateProgress ${e}`);
+    }
+  }
+
   render() {
     return (
       <div className="campaign-container content-block">
         <CampaignTitle />
         <div className="row">
           <div className="col-md-5 col-sm-5">
-            <ProgressBar />
+            <ProgressBar progress = { this.state.progress } />
             <div className="spacer-20" />
             <CampaignMedia />
           </div>
           <div className="col-md-7 col-sm-7">
-            <Statistics />
-            <PledgeForm />
+            <Statistics stats = { this.state.stats } />
+            <PledgeForm onSubmitProgress = { this.onSubmitUpdateProgress }/>
           </div>
           <div className="spacer-20" />
         </div>

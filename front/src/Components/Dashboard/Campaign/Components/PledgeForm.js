@@ -58,7 +58,21 @@ export default class PledgeForm extends Component {
         }
     }
 
+    getPledgedValue = () => 
+    {
+        try {
+            const value = this.state.pledge_data.find((data) => data.pledge_id == this.state.selectedOptionId).value;
+            if (value)
+             return value ?  value : 0;
+            // if value is 0 then catch this in main
+        } catch (e) {
+            console.log(`getPledgeValue ${e}`);
+            return 0;
+        }
+    }
+
     render() {
+        console.log(this.props);
         return (
             <>
                 <div className="pledge-modal-content">
@@ -91,7 +105,7 @@ export default class PledgeForm extends Component {
                     </div>
                 </div>
                 <div className="spacer-20" />
-                <button className="btn btn-primary btn-block">Fund Now</button>
+                <button onClick={(evt) => this.props.onSubmitProgress(evt, this.getPledgedValue())} className="btn btn-primary btn-block">Fund Now</button>
             </>
         )
     }

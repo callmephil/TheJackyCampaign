@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../Layout/Media.css';
+import '../Styles/Media.css';
 
 
 // Should return a gallery

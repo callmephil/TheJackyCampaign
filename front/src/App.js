@@ -29,30 +29,40 @@ class App extends Component {
   render() {
     return (
       <div>
-        { 
+        {
           this.props.location.pathname.includes("/admin") ?
             <Switch>
-              <Route path="/admin" render={()=> <Dashboard />} />
+              <Route path="/admin" render={() => <Dashboard />} />
             </Switch>
-          :
-          <>
-            <Navbar />
-            <Switch>
-              <Route path="/" exact render={()=> <Home />} />
-              <Route path="/campaign" exact render={()=> <Campaign />} />
-              {/* <Route path="/blog" exact render={()=> <Blog />} /> */}
-              <Route path="/blog" exact render={()=> <Blog editMode={ false }/> } />
-              {/* <Route path="/callback" render={this.handleAuthentication} /> */}
-              <Route render={() => <div> <ForOFor /> </div>} />
-            </Switch>
-            <Footer />
-            <ToastContainer />
-          </>
+            :
+            <>
+              <Navbar />
+              <Switch>
+                <Route path="/" exact render={() => <Home />} />
+                <Route path="/campaign" exact render={() => <Campaign />} />
+                {/* <Route path="/blog" exact render={()=> <Blog />} /> */}
+                <Route path="/blog" exact render={() => <Blog editMode={false} />} />
+                {/* <Route path="/callback" render={this.handleAuthentication} /> */}
+                <Route render={() => <div> <ForOFor /> </div>} />
+              </Switch>
+              <Footer />
+              <ToastContainer
+                position="top-center"
+                autoClose={1500}
+                hideProgressBar={false}
+                newestOnTop
+                closeOnClick
+                rtl={false}
+                pauseOnVisibilityChange
+                draggable
+                pauseOnHover
+              />
+            </>
         }
       </div>
     );
   }
-} 
+}
 
 
 export default withRouter(App);
