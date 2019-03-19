@@ -59,7 +59,6 @@ export default class PledgeForm extends Component {
     }
 
     render() {
-        console.log(this.props);
         return (
             <>
                 <div className="pledge-modal-content">

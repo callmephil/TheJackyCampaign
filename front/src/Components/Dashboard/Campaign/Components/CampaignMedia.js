@@ -40,8 +40,16 @@ const VideoContainer = ({vID}) => {
 // Should Contain Switches to display Correct Datas 
 export default class CampaignMedia extends Component {
   render() {
-    return (
-        <VideoContainer vID="coIXMyWzpAU"/>
-    );
+    switch (this.props.data.type)
+    {
+        case 0:
+            return <VideoContainer vID = {this.props.data.media_id}/>;
+        case 1:
+            return <ImageContainer imgSource = {this.props.data.media_id}/>
+        case 2:
+            return <GalleryContainer images = {this.props.data.media_id}/>
+        default:
+            return <ImageContainer imgSource = "Placeholder.." />;
+    }
   };
 };

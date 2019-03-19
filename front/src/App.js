@@ -47,8 +47,8 @@ class App extends Component {
               </Switch>
               <Footer />
               <ToastContainer
-                position="top-center"
-                autoClose={1500}
+                position="top-left"
+                autoClose={800}
                 hideProgressBar={false}
                 newestOnTop
                 closeOnClick

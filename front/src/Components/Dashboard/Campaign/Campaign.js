@@ -7,22 +7,13 @@ import CampaignMedia from "./Components/CampaignMedia";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const CampaignTitle = () => {
+const CampaignTitle = ({ data }) => {
+  const { title, description } = data;
   return (
     <>
-      <h1 className="big-title-centered">The Jacky Campaign</h1>
+      <h1 className="big-title-centered"> { title } </h1>
       <div className="spacer-20" />
-      <p className="lead">
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book. It has survived not only five
-        centuries, but also the leap into electronic typesetting, remaining
-        essentially unchanged. It was popularised in the 1960s with the release
-        of Letraset sheets containing Lorem Ipsum passages, and more recently
-        with desktop publishing software like Aldus PageMaker including versions
-        of Lorem Ipsum.
-      </p>
+        <p className="lead"> { description } </p>
       <div className="spacer-20" />
     </>
   );
@@ -32,17 +23,53 @@ export default class Campaign extends Component {
   constructor() {
     super();
     this.state = {
-      progress: {
-        currentProgress: 20000,
-        goal: 75000,
+      main: {
+        title: `The Jacky Campaign`,
+        description: `Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book. It has survived not only five
+        centuries, but also the leap into electronic typesetting, remaining
+        essentially unchanged. It was popularised in the 1960s with the release
+        of Letraset sheets containing Lorem Ipsum passages, and more recently
+        with desktop publishing software like Aldus PageMaker including versions
+        of Lorem Ipsum.`
       },
-      stats: {
-        totalFunder: 10,
-        startDate: '18/03/2019',
-        endDate: '31/03/2019',
-        location: 'Lebanon'
-      }
+      // progress: { },
+      // media: { },
+      // stats: { },
     }
+  }
+
+  componentWillMount() {
+    this.getProgress();
+    this.getMedia();
+    this.getStats();
+  }
+  getProgress = () => {
+    const progress = {
+      currentProgress: 20000,
+      goal: 75000,
+    };
+    this.setState({ progress });
+  }
+  getMedia = () => {
+    const media = {
+      type: 0,
+      media_id: 'coIXMyWzpAU'
+      // type: 1,
+      // media_id: 'https://images.unsplash.com/photo-1476726050528-0858616a1cb9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80'
+    }
+    this.setState({ media })
+  }
+  getStats = () => {
+    const stats = {
+      totalFunder: 10,
+      startDate: '18/03/2019',
+      endDate: '31/03/2019',
+      location: 'Lebanon'
+    }
+    this.setState({ stats });
   }
 
   onSubmitUpdateFunder = () => {
@@ -53,9 +80,7 @@ export default class Campaign extends Component {
         endDate: '31/03/2019',
         location: 'Lebanon' }
       this.setState({ stats });
-
-    } catch (e)
-    {
+    } catch (e) {
       console.log(e);
     }
   }
@@ -81,23 +106,23 @@ export default class Campaign extends Component {
       if (e.message === 'NO_SELECT')
         toast.error(`You have to select a pledge first`, {toastId:1})
       else
-        console.log(`onSubmitUpdateProgress ${e}`);
+        console.error(`onSubmitUpdateProgress ${e}`);
     }
   }
 
   render() {
     return (
       <div className="campaign-container content-block">
-        <CampaignTitle />
+        <CampaignTitle data = { this.state.main } />
         <div className="row">
           <div className="col-md-5 col-sm-5">
             <ProgressBar progress = { this.state.progress } />
             <div className="spacer-20" />
-            <CampaignMedia />
+            <CampaignMedia data = { this.state.media } />
           </div>
           <div className="col-md-7 col-sm-7">
             <Statistics stats = { this.state.stats } />
-            <PledgeForm onSubmitProgress = { this.onSubmitUpdateProgress }/>
+            <PledgeForm onSubmitProgress = { this.onSubmitUpdateProgress } />
           </div>
           <div className="spacer-20" />
         </div>
