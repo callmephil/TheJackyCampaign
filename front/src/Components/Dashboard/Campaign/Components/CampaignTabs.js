@@ -46,50 +46,50 @@ const Description = () => {
 const Comments = () => {
   return (
     <div>
-      <div class="card-block">
+      <div className="card-block">
         {/* <!-- form --> */}
         <form action="">
-          <div class="input-group mb-2 mr-sm-2 mb-sm-0 main-comment-form">
-            <button class="input-group-addon"><i class="fa fa-paper-plane"></i></button>
-            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Say something" />
+          <div className="input-group mb-2 mr-sm-2 mb-sm-0 main-comment-form">
+            <button className="input-group-addon"><i className="fa fa-paper-plane"></i></button>
+            <input type="text" className="form-control" id="inlineFormInputGroup" placeholder="Say something" />
           </div>
         </form>
         <hr />
         {/* <!-- form --> */}
         {/* <!-- comments --> */}
-        <div class="comments-container">
-          <div class="media">
-            <img class="d-flex mr-3" src="https://warwick.com.au/attachments/StyleSheet/21/placeholder_s.gif?ts=1440649006" alt="Generic placeholder image" />
-            <div class="media-body">
-              <h5 class="mt-0 main-post-comment-hding">Alessa Carter</h5>
-              <p class="main-post-comment-paragraph">
+        <div className="comments-container">
+          <div className="media">
+            <img className="d-flex mr-3" src="https://warwick.com.au/attachments/StyleSheet/21/placeholder_s.gif?ts=1440649006" alt="Generic placeholder image" />
+            <div className="media-body">
+              <h5 className="mt-0 main-post-comment-hding">Alessa Carter</h5>
+              <p className="main-post-comment-paragraph">
                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
                     </p>
-              <p class="social-action-container">
-                <a class="btn btn-outline-success btn-login gbtn btn-like btn-sm" href=""> <i class="fa fa-thumbs-up"></i></a>
-                <a class="btn btn-outline-success btn-login gbtn btn-like btn-sm" href=""> <i class="fa fa-thumbs-down"></i></a>
-                <a class="btn btn-outline-success btn-login gbtn btn-like btn-sm" href=""> <i class="fa fa-share"></i></a>
+              <p className="social-action-container">
+                <a className="btn btn-outline-success btn-login gbtn btn-like btn-sm" href=""> <i className="fa fa-thumbs-up"></i></a>
+                <a className="btn btn-outline-success btn-login gbtn btn-like btn-sm" href=""> <i className="fa fa-thumbs-down"></i></a>
+                <a className="btn btn-outline-success btn-login gbtn btn-like btn-sm" href=""> <i className="fa fa-share"></i></a>
               </p>
               <hr />
-              <div class="media mt-3">
-                <a class="d-flex pr-3" href="#">
+              <div className="media mt-3">
+                <a className="d-flex pr-3" href="#">
                   <img src="https://warwick.com.au/attachments/StyleSheet/21/placeholder_s.gif?ts=1440649006" alt="Generic placeholder image" />
                 </a>
-                <div class="media-body">
-                  <h5 class="mt-0 main-post-comment-hding">Jaime Gonzalez</h5>
-                  <p class="main-post-comment-paragraph">
+                <div className="media-body">
+                  <h5 className="mt-0 main-post-comment-hding">Jaime Gonzalez</h5>
+                  <p className="main-post-comment-paragraph">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto totam voluptas inventore, deserunt obcaecati quia unde rerum veritatis sed, aut repellendus laboriosam excepturi fuga explicabo expedita labore facere blanditiis! Rem.
                         </p>
-                  <p class="social-action-container">
-                    <a class="btn btn-outline-success btn-login gbtn btn-like btn-sm" href=""> <i class="fa fa-thumbs-up"></i></a>
-                    <a class="btn btn-outline-success btn-login gbtn btn-like btn-sm" href=""> <i class="fa fa-thumbs-down"></i></a>
-                    <a class="btn btn-outline-success btn-login gbtn btn-like btn-sm" href=""> <i class="fa fa-share"></i></a>
+                  <p className="social-action-container">
+                    <a className="btn btn-outline-success btn-login gbtn btn-like btn-sm" href=""> <i className="fa fa-thumbs-up"></i></a>
+                    <a className="btn btn-outline-success btn-login gbtn btn-like btn-sm" href=""> <i className="fa fa-thumbs-down"></i></a>
+                    <a className="btn btn-outline-success btn-login gbtn btn-like btn-sm" href=""> <i className="fa fa-share"></i></a>
                   </p>
                   <hr />
                   <form action="">
-                    <div class="input-group mb-2 mr-sm-2 mb-sm-0 main-comment-form">
-                      <button class="input-group-addon"><i class="fa fa-paper-plane"></i></button>
-                      <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Say something" />
+                    <div className="input-group mb-2 mr-sm-2 mb-sm-0 main-comment-form">
+                      <button className="input-group-addon"><i className="fa fa-paper-plane"></i></button>
+                      <input type="text" className="form-control" id="inlineFormInputGroup" placeholder="Say something" />
                     </div>
                   </form>
                 </div>

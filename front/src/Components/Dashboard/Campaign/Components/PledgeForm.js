@@ -38,10 +38,9 @@ export default class PledgeForm extends Component {
 
     findRewards = () => {
         try {
-            const rewards = this.state.pledge_data.find((data) => data.pledge_id == this.state.selectedOptionId).rewards;
+            const rewards = this.state.pledge_data.find((data) => data.pledge_id === parseInt(this.state.selectedOptionId)).rewards;
             return rewards ? rewards : ["no rewards..."];
         } catch (e) {
-            console.log(e);
             return ["Select an option to see the rewards"];
         }
     }
@@ -49,7 +48,7 @@ export default class PledgeForm extends Component {
     getPledgedValue = () => 
     {
         try {
-            const value = this.state.pledge_data.find((data) => data.pledge_id == this.state.selectedOptionId).value;
+            const value = this.state.pledge_data.find((data) => data.pledge_id === parseInt(this.state.selectedOptionId)).value;
             if (value)
              return value ?  value : 0;
             // if value is 0 then catch this in main
@@ -70,7 +69,7 @@ export default class PledgeForm extends Component {
                             <ul className="predefined-amount">
                                 {this.state.pledge_data.map(({ pledge_id, value }, index) =>
                                     <li key={index} >
-                                        <label className={pledge_id == this.state.selectedOptionId ? "selected" : ""}>
+                                        <label className={pledge_id === parseInt(this.state.selectedOptionId) ? "selected" : ""}>
                                             <input type="radio"
                                                 id={pledge_id}
                                                 name="donation-amount"

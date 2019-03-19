@@ -33,8 +33,8 @@ export default class Campaign extends Component {
     super();
     this.state = {
       progress: {
-        currentProgress: 189400,
-        goal: 200000,
+        currentProgress: 20000,
+        goal: 75000,
       },
       stats: {
         totalFunder: 10,

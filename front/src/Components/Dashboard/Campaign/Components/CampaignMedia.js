@@ -27,11 +27,11 @@ const ImageContainer = ({imgSource}) =>
 // should return a video posted on youtube.
 const VideoContainer = ({vID}) => {
     return (
-    <div class="video-container">
-        <iframe width="853" height="480"
+    <div className="video-container">
+        <iframe key={1} title={"youtube video"} width="853" height="480"
         src={`https://www.youtube.com/embed/${vID}`}
-        frameborder="0"
-        allowfullscreen="true"/>
+        frameBorder="0"
+        allowFullScreen={true}/>
     </div>
     );
 };

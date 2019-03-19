@@ -111,9 +111,9 @@ export const BlogCard = ({ props, functions }) => {
         <div className="clearfix">
           <br />
           <br />
-          <button onClick={() => functions.delete(post_id)} type="button" className="cancelbtn font-size-16">Delete</button>
-          <button onClick={() => functions.edit(post_id)} type="button" className="editbtn font-size-16">Edit</button>
-          <button onClick={() => functions.publish(post_id)} type="button" className="publishbtn font-size-16">Publish</button>
+          <button onClick={() => functions.delete(post_id)} type="button" className=".card-button cancelbtn font-size-16">Delete</button>
+          <button onClick={() => functions.edit(post_id)} type="button" className=".card-button editbtn font-size-16">Edit</button>
+          <button onClick={() => functions.publish(post_id)} type="button" className=".card-button publishbtn font-size-16">Publish</button>
         </div>
       }
     </div>
