@@ -25,15 +25,7 @@ export default class Campaign extends Component {
     this.state = {
       main: {
         title: `The Jacky Campaign`,
-        description: `Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book. It has survived not only five
-        centuries, but also the leap into electronic typesetting, remaining
-        essentially unchanged. It was popularised in the 1960s with the release
-        of Letraset sheets containing Lorem Ipsum passages, and more recently
-        with desktop publishing software like Aldus PageMaker including versions
-        of Lorem Ipsum.`
+        description: `The Jacky Campaign, a crowd-funding platform that aims to preserve land or other Lebanese patrimony. Each participant of a campaign will own a small strip of the land in return. This way, all eligible funders together possess the land and make it impossible for anyone to exploit, or buy it back. Funds can also be raised to reforest the land with trees.`
       },
       // progress: { },
       // media: { },
@@ -85,6 +77,15 @@ export default class Campaign extends Component {
     }
   }
 
+  TestingThing = ()  =>  {
+
+    const currProgress = this.state.progress.currentProgress;
+    const newProgress = currProgress + 150;
+    const progress = {currentProgress: newProgress, goal: this.state.progress.goal}
+    this.setState({ progress })
+    this.onSubmitUpdateFunder();
+  }
+
   onSubmitUpdateProgress = (evt, newAmount) => 
   {
     try {
@@ -101,6 +102,13 @@ export default class Campaign extends Component {
     this.onSubmitUpdateFunder();
 
     toast.success(`${newAmount} donated by annonymous !`, {toastId:2});
+
+    var self = this;
+    for (let index = 0; index < 300; index++) {
+      setTimeout(function () {
+        self.TestingThing();
+      }, 3000);
+    }
     }
     catch (e) {
       if (e.message === 'NO_SELECT')

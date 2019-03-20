@@ -9,24 +9,24 @@ export default class PledgeForm extends Component {
             {
                 pledge_id: 1,
                 value: 10,
-                rewards: ["Your name somewhere"]
+                rewards: ["Our sincere gratitude for your participation in this campaign"]
             },
             {
                 pledge_id: 2,
                 value: 25,
-                rewards: ["Your name somewhere", "Your name somewhere else"]
+                rewards: ["Our sincere gratitude for your participation in this campaign", "Your name on our panel"]
             }, {
                 pledge_id: 3,
                 value: 50,
-                rewards: ["Your name somewhere", "Your name somewhere else", "the name of someone else somewhere"]
+                rewards: ["Our sincere gratitude for your participation in this campaign", "Your name on our panel paint in gold", "A tree in your name *"]
             }, {
                 pledge_id: 4,
                 value: 100,
-                rewards: ["Your name somewhere", "Your name somewhere else", "the name of someone else somewhere", "A Snicker"]
+                rewards: ["Our sincere gratitude for your participation in this campaign", "Your name on our panel paint in gold", "A piece of the land"]
             }, {
                 pledge_id: 5,
                 value: 150,
-                rewards: ["Your name somewhere", "Your name somewhere else", "the name of someone else somewhere", "A Snicker", "And a Mars"]
+                rewards:  ["Our sincere gratitude for your participation in this campaign", "Your name on our panel paint in gold", "A piece of the land", "A tree in your name *"]
             }
         ]
     }
@@ -79,6 +79,8 @@ export default class PledgeForm extends Component {
                                 )}
                             </ul>
                             <div className="pricing-table">
+                            <div className="spacer-20"></div>
+                            <h4>Rewards</h4>
                                 <ul>
                                     {this.findRewards().map((reward, index) =>
                                         <li key={index}>

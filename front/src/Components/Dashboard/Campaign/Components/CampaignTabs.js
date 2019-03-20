@@ -107,15 +107,15 @@ export default class CampaignTabs extends Component {
   state = {
     FAQ: [
       {
-        question: 'Question 1 ?',
+        question: 'How can I be eligible for owning a portion of the land ?',
         answer: 'This is an answer for the question 1'
       },
       {
-        question: 'Question 2 ?',
+        question: 'Can I do anything I want with my portion of the land ?',
         answer: 'This is an answer for the question 2'
       },
       {
-        question: 'Question 3 ?',
+        question: 'Can I get my money back ?',
         answer: 'This is an answer for the question 3'
       },
     ]

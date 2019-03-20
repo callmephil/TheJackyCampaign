@@ -71,7 +71,7 @@ export const Statistics = ({stats}) => {
         Total Funders<span className="badge">{totalFunder}</span>
       </li>
       <li className="list-group-item">
-        Days left to fundraising<span className="badge">{dayleft}</span>
+        Days of fundraising left<span className="badge">{dayleft}</span>
       </li>
       <li className="list-group-item">
         Location<span className="badge">{location}</span>
