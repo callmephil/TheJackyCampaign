@@ -9,7 +9,7 @@ import campaignControllerApp from './Controller/campaign'
 import blogControllerApp from './Controller/blog'
 /* Middleware */
 import upload from './Middleware/uploads'
-import {BACK_PORT} from "../../back/src/constants";
+import {BACK_PORT} from "./constants";
 
 const start = async () => {
   /* Database Controllers */
