@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as auth0Client from "../Utils/Auth/Auth";
-import toast from 'react-toastify';
-import {API_URL} from "../constants";
+// import toast from 'react-toastify';
+const { REACT_APP_NODE_API_URL } = process.env;
 const onGet = async (url) => {
   const answer = await request(url);
   if (!answer.success)
@@ -11,7 +11,6 @@ const onGet = async (url) => {
 }
 
 const onGetList = async (url, props) => {
-  console.log("DEBUG");
   const answer = await request(url, {
     params: {
       ...props,
@@ -54,7 +53,7 @@ const request = async (path, options) => {
     }
     const config = {
       method: "get",
-      url:  `${API_URL}/${path}`,
+      url:  `${REACT_APP_NODE_API_URL}/${path}`,
       headers: {
         Authorization: `Bearer ${auth0Client.getIdToken()}`,
         'Content-Type': options && options.data ? 'multipart/form-data' : undefined

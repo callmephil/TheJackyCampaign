@@ -1,5 +1,3 @@
-require('dotenv').config();
-console.log(process.env)
 import app from './app'
 import Connection from './Database/Connection'
 import { isLoggedIn } from './Middleware/auth'
@@ -9,7 +7,7 @@ import campaignControllerApp from './Controller/campaign'
 import blogControllerApp from './Controller/blog'
 /* Middleware */
 import upload from './Middleware/uploads'
-import {BACK_PORT} from "./constants";
+const BACK_PORT = process.env.NODE_API_PORT || 8080;
 
 const start = async () => {
   /* Database Controllers */

@@ -8,6 +8,8 @@ import createError from 'http-errors' // better JS errors
 import path from 'path'
 import helmet from 'helmet'
 
+require('dotenv').config();
+
 const app = express(); // create a new app
 
 const IS_PRODUCTION = app.get('env') === 'production'
