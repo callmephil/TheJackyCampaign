@@ -8,21 +8,21 @@
     "back": "cd back && npm start",
     "front": "cd front && npm start",
     "start": "concurrently --kill-others-on-fail --names \"back,front\" \"npm run back\" \"npm run front\"",
-    "postinstall": "cd front && npm install && cd .. && cd back && npm install"
+    "postinstall": "cd front && npm install && cd .. && cd back && npm install",
+    "build": "cd front && npm run-script build && cd ../back && npm run-script build"
   },
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/coditech/cohort-b03/capstone/phil-personal_project.git"
+    "url": "https://github.com/callmephil/TheJackyCampaign.git"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://gitlab.com/coditech/cohort-b03/capstone/phil-personal_project/issues"
+    "url": "https://github.com/callmephil/TheJackyCampaign/issues"
   },
-  "homepage": "https://gitlab.com/coditech/cohort-b03/capstone/phil-personal_project#readme",
+  "homepage": "https://github.com/callmephil/TheJackyCampaign/tree/master#readme",
   "dependencies": {
-    "concurrently": "^4.1.0",
-    "react": "^16.7.0"
+    "concurrently": "^5.0.0"
   }
 }
